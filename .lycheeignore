@@ -1,0 +1,11 @@
+# Patterns that lychee should skip.
+# LinkedIn often blocks automated requests.
+# The AWS console requires sign-in, so it cannot be checked anonymously.
+# mailto: links are not network links.
+# Localhost, loopback, and example.com are placeholders, not live targets.
+^https://(www\.)?linkedin\.com
+^https://console\.aws\.amazon\.com
+^mailto:
+localhost
+127\.0\.0\.1
+example\.com
