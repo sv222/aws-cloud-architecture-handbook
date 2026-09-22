@@ -163,7 +163,7 @@ Amazon EKS is a fully managed Kubernetes service that makes it easy to deploy, m
 Here is some short information about Amazon EKS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
 
 - EKS is a fully managed Kubernetes service.
-- EKS provides a Kubernetes API server, a Kubernetes control plane, and Kubernetes worker nodes. As of June 2026, Amazon EKS supports Kubernetes version 1.36.
+- EKS provides a Kubernetes API server, a Kubernetes control plane, and Kubernetes worker nodes. As of November 2026, Amazon EKS supports Kubernetes version 1.37.
 - EKS provides a variety of features to help you manage your Kubernetes applications, including Kubernetes orchestration, enhanced security, flexible load balancing options (ALB, NLB, CLB), and comprehensive monitoring (CloudWatch Container Insights).
 
 Here are some additional details about Amazon EKS that you may want to know:
@@ -333,7 +333,7 @@ Here is some short information about Amazon S3 that you will need to know to pas
 - Server-side encryption (SSE-S3, SSE-KMS, SSE-C)
 - Static website hosting
 - S3 Storage Lens (for organization-wide visibility)
-- S3 Object Lambda (process data as it is retrieved)
+- S3 Object Lambda (process data as it is retrieved; closed to new customers since November 7, 2025)
 
 Here are some additional details about Amazon S3 that you may want to know:
 
@@ -341,7 +341,7 @@ Here are some additional details about Amazon S3 that you may want to know:
 - S3 objects are uniquely identified by a key (name) and a version ID (if versioning is enabled).  
 - S3 objects can be up to 5 TB in size.
 - S3 offers a variety of storage classes to meet your needs, including S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, S3 Glacier Deep Archive, and S3 Express One Zone.
-- S3 can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon CloudFront, Amazon Lambda, AWS Storage Gateway, and AWS Lake Formation.
+- S3 can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon CloudFront, AWS Lambda, AWS Storage Gateway, and AWS Lake Formation.
 - S3 Access Grants for simplified data access management.
 - S3 Express One Zone for high-performance access.
 
@@ -351,7 +351,7 @@ Amazon S3 is a powerful tool for storing and retrieving any amount of data. It i
 
 Elastic Block Store (EBS) is a block-level storage service designed for use with Amazon Elastic Compute Cloud (EC2) instances. EBS volumes provide persistent storage for applications running on EC2 instances. EBS volumes are replicated within the Availability Zone in which they are created to protect against data loss.  
 
-EBS volumes are available in five volume types:
+EBS volumes are available in six volume types:
 
 - **General Purpose SSD (gp3):** Recommended for most workloads. Baseline 3,000 IOPS and 125 MB/s throughput, scalable to 80,000 IOPS and 2,000 MB/s.
 - **Provisioned IOPS SSD (io2 Block Express):** Highest performance SSD for mission-critical applications. Supports up to 256,000 IOPS and 4,000 MB/s throughput per volume. Supports Multi-Attach.
@@ -701,7 +701,9 @@ Example use cases of KMS:
 
 ## AWS Security Hub  
 
-AWS Security Hub provides centralized security governance across AWS accounts with these key exam-relevant features:
+In December 2025 AWS released a new, unified AWS Security Hub that correlates signals from GuardDuty, Inspector, and posture checks; the original service described below is now called AWS Security Hub CSPM and remains available.
+
+AWS Security Hub CSPM provides centralized security governance across AWS accounts with these key exam-relevant features:
 
 - **Compliance Standards**:
   - AWS Foundational Security Best Practices (FSBP)
@@ -1228,7 +1230,7 @@ AWS CodeDeploy is a powerful and flexible tool for automating the deployment pro
 
 ## AWS CodeCommit
 
-AWS CodeCommit is a fully managed, highly scalable, secure source control service that hosts private Git repositories. AWS closed CodeCommit to new customers on July 25, 2024; existing customers can continue using the service. CodeCommit makes it easy for teams to collaborate on code development and track changes over time.
+AWS CodeCommit is a fully managed, highly scalable, secure source control service that hosts private Git repositories. AWS closed CodeCommit to new customers on July 25, 2024, then returned it to general availability for new and existing customers in November 2025. CodeCommit makes it easy for teams to collaborate on code development and track changes over time.
 
 CodeCommit is a fully managed service, so you don't need to provision or manage any servers. CodeCommit also provides a variety of security features to help you protect your code, such as encryption at rest and in transit, and integration with AWS IAM for access control.
 
