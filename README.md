@@ -1261,8 +1261,8 @@ Overall, AWS CodeCommit is a valuable tool for any organization that is developi
 
 ## Contributing
 
-We welcome contributions from the community. If you have ideas, bug reports, or feature requests, please open an issue or submit a pull request.
+We welcome contributions from the community. If you have ideas, bug reports, or feature requests, please open an issue or submit a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## License
 
-This project is licensed under the MIT License.
+Copyright 2026 Stanislav. This work is licensed under the [Creative Commons Attribution 4.0 International License](LICENSE) (CC BY 4.0).
