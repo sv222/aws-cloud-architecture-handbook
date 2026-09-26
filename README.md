@@ -242,7 +242,7 @@ Route 53 is a powerful tool for managing DNS records and routing traffic to inte
 
 Elastic Load Balancing (ELB) is a load balancing service that automatically distributes incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets and ensures that traffic is routed only to the healthy targets. ELB scales your load balancer capacity automatically in response to changes in incoming traffic.
 
-Key points about Amazon ELB for architecture and operations:
+Key points about Elastic Load Balancing for architecture and operations:
 
 - ELB is a load balancing service that distributes incoming traffic across multiple targets.
 - ELB monitors the health of its registered targets and routes traffic only to the healthy targets.
@@ -253,7 +253,7 @@ Key points about Amazon ELB for architecture and operations:
   - Gateway Load Balancer: Enables you to deploy, scale, and manage third-party virtual appliances.
   - Classic Load Balancer: A legacy load balancer that is still supported, but not recommended for new applications.
 
-Here are some additional details about Amazon ELB that you may want to know:
+Here are some additional details about Elastic Load Balancing that you may want to know:
 
 - ELB can be used to load balance traffic to applications hosted on AWS, on-premises, or with other cloud providers.
 - ELB can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, and Amazon CloudFront.
@@ -285,7 +285,7 @@ Here are some additional details about AWS Transfer Family that you may want to 
 
 - AWS Transfer Family can be used to transfer files of any size, from small text files to large video files.
 - AWS Transfer Family can be used to transfer files between your on-premises systems and AWS storage services in any AWS Region.
-- AWS Transfer Family can be integrated with a variety of other AWS services, such as Amazon CloudTrail and Amazon CloudWatch.
+- AWS Transfer Family can be integrated with a variety of other AWS services, such as AWS CloudTrail and Amazon CloudWatch.
 
 AWS Transfer Family is a powerful tool for transferring files over SFTP securely and reliably. It is easy to use and it provides a variety of features to help you manage your file transfers efficiently.
 
@@ -494,14 +494,14 @@ Key points about SQS for architecture and operations:
 - SQS is highly available and durable, and it can scale to millions of messages per second.
 - SQS is cost-effective, and it offers a variety of features to help you save money, such as pay-as-you-go pricing and dead-letter queues.
 - SQS can be used to decouple and scale a wide range of applications and microservices, including web applications, mobile applications, and IoT applications.
-- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, AWS EventBridge, and AWS S3.
+- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, Amazon EventBridge, and Amazon S3.
 
 Here are some additional details about SQS that you may want to know:
 
 - SQS offers two types of queues: Standard Queues (at-least-once delivery, best-effort ordering) and FIFO Queues (exactly-once processing, strict ordering).
 - SQS queues can be configured with different visibility timeouts, which determines how long a message is visible to consumers before it is automatically hidden.
 - SQS queues can be configured with dead-letter queues, which are queues where messages are sent if they cannot be processed successfully.
-- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, AWS EventBridge, and AWS S3.
+- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, Amazon EventBridge, and Amazon S3.
 
 ## Amazon Simple Notification Service (SNS)
 
@@ -521,7 +521,7 @@ Here are some additional details about Amazon SNS that you may want to know:
 - SNS messages can be sent in a variety of formats, including JSON, XML, and raw text.
 - SNS messages can be encrypted at rest (SSE) and in transit (HTTPS).
 - SNS messages can be delivered to a variety of endpoints, including email, SMS, HTTP/S, Amazon SQS queues, AWS Lambda functions, and mobile push notifications.
-- SNS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon CloudWatch, AWS EventBridge, and Amazon Data Firehose.
+- SNS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon CloudWatch, Amazon EventBridge, and Amazon Data Firehose.
 - SNS supports FIFO topics for strict message ordering, deduplication, and message grouping.
 
 ## Amazon API Gateway
@@ -622,7 +622,7 @@ Here are some additional details that you may want to know:
 
 - CloudTrail logs can be filtered to only include events that are of interest to you.
 - CloudTrail logs can be used to create alerts and notifications via CloudWatch Alarms.
-- CloudTrail logs can be integrated with other AWS services, such as Amazon IAM, Amazon GuardDuty, and AWS Security Hub.
+- CloudTrail logs can be integrated with other AWS services, such as AWS IAM, Amazon GuardDuty, and AWS Security Hub.
 - CloudTrail Lake allows for immutable storage and SQL-based querying of events.
 - CloudTrail Insights for anomaly detection.
 
@@ -1048,7 +1048,7 @@ Once Macie has identified and classified sensitive data, it provides you with a 
 - **Encryption reports:** Macie reports on how your S3 objects are encrypted (SSE-S3, SSE-KMS) and flags buckets with weak or missing encryption protections.
 - **Auditing:** Macie can provide you with audit reports on how your sensitive data is being accessed and shared.
 
-Macie is a valuable tool for any organization that is using AWS S3 to store sensitive data. It can help you to identify and protect your sensitive data from unauthorized access, theft, and loss.
+Macie is a valuable tool for any organization that is using Amazon S3 to store sensitive data. It can help you to identify and protect your sensitive data from unauthorized access, theft, and loss.
 
 **Key points about Amazon Macie for architecture and operations:**
 
@@ -1063,7 +1063,7 @@ Macie is a valuable tool for any organization that is using AWS S3 to store sens
 - Macie is available in all AWS Regions and supports multi-account management through AWS Organizations.
 - Macie provides a dashboard for a centralized view of your S3 data security posture.
 
-Macie is a powerful tool for improving the security of your sensitive data in AWS S3. It is easy to use and it provides a variety of features to help you identify, protect, and audit your sensitive data.
+Macie is a powerful tool for improving the security of your sensitive data in Amazon S3. It is easy to use and it provides a variety of features to help you identify, protect, and audit your sensitive data.
 
 ## AWS IAM Access Analyzer
 
