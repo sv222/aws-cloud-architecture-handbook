@@ -711,9 +711,9 @@ AWS Security Hub CSPM provides centralized security governance across AWS accoun
 - **Custom Insights**: Create custom queries to identify specific security issues.
 - **Automated Remediation**: Integrate with AWS Systems Manager Automation and AWS Lambda for automated responses.
 
-Key points about AWS Security Hub for architecture and operations:
+Key points about AWS Security Hub CSPM for architecture and operations:
 
-- Security Hub is a cloud security posture management service that provides a comprehensive view of your security state across AWS accounts, services, and supported third-party products.
+- Security Hub CSPM is a cloud security posture management service that provides a comprehensive view of your security state across AWS accounts, services, and supported third-party products.
 - Security Hub collects findings from a variety of sources, including Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS IAM Access Analyzer, and prioritizes them based on severity and risk.
 - Security Hub also provides recommendations for remediation, so that you can quickly and easily address any security issues.
 - Security Hub can be integrated with other AWS services, such as Amazon EventBridge and Amazon CloudWatch, to automate remediation actions.
