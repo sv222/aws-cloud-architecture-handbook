@@ -1,6 +1,6 @@
 # AWS Cloud Architecture Handbook: Design Patterns and Well-Architected Guidance for Engineers
 
-![AWS cloud architecture handbook](extras/AWS_Certified_Solutions_Architect_Associate_SAA_C03_Cheatsheet_logo.png)
+![AWS cloud architecture handbook](extras/aws-architecture-handbook-logo.png)
 
 A practical AWS cloud architecture handbook for engineers who design, build, and run systems on AWS. It summarizes core services, design patterns, limits, and AWS Well-Architected Framework guidance, updated for 2026. The content also lines up with the AWS Certified Solutions Architect – Associate (SAA-C03) domains.
 
