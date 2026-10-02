@@ -135,24 +135,21 @@ Key points about Amazon EKS for architecture and operations:
 
 ## AWS Lambda
 
-AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Lambda executes your code only when needed and scales automatically, so you can focus on your code and not on managing infrastructure. Lambda supports a variety of programming languages and runtimes (e.g., Node.js 22 and 24, Python 3.13 and 3.14, Java 21 and 25, .NET 8 and 10, Ruby 3.4, and OS-only runtimes like provided.al2023, commonly used for Go).
+AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Lambda runs your code only when it is invoked and scales automatically. Lambda provides managed runtimes for Node.js, Python, Java, .NET, and Ruby, plus OS-only runtimes such as `provided.al2023`, which custom runtimes (such as Go) use.
 
 Key points about AWS Lambda for architecture and operations:
 
-- Lambda is a serverless compute service.
-- Lambda executes your code only when needed and scales automatically.
-- Lambda supports a variety of programming languages and runtimes, with continuous updates and deprecation cycles.
-
-Here are some additional details about AWS Lambda that you may want to know:
-
-- Lambda functions can be triggered by a variety of events, such as HTTP requests, changes to S3 objects, and messages from Kinesis streams.
-- Lambda functions can be used to build a wide variety of applications, including web applications, mobile backends, and data processing pipelines.
-- Lambda functions can be integrated with a variety of other AWS services, such as API Gateway, S3, and DynamoDB.
-- Supports `arm64` architecture (AWS Graviton) for improved performance and cost efficiency.
-- Utilizes Amazon Linux 2023 for newer runtimes.
-- Allows deploying Lambda functions as container images for larger dependencies and familiar tooling.
-
-Lambda is a powerful tool for building serverless applications. It is easy to use and it provides a variety of features to help you develop, deploy, and manage your serverless applications efficiently.
+- Runtimes are deprecated on published dates. After deprecation, AWS stops security patches for the runtime, and later blocks creating and updating functions that use it.
+- Limits:
+  - Maximum timeout: 15 minutes (900 seconds)
+  - Memory: 128 MB to 10,240 MB; CPU scales with memory
+  - Ephemeral storage (`/tmp`): 512 MB to 10,240 MB
+  - Deployment package: 50 MB zipped for direct upload (use Amazon S3 for larger packages), 250 MB unzipped including layers
+  - Container images: up to 10 GB uncompressed
+- Event sources include HTTP requests (through API Gateway or function URLs), changes to S3 objects, and Kinesis stream records.
+- Function URLs give a function a dedicated HTTPS endpoint with `AWS_IAM` or `NONE` auth.
+- Supports `arm64` architecture (AWS Graviton).
+- Newer managed runtimes run on Amazon Linux 2023.
 
 ## Amazon Virtual Private Cloud (VPC)
 
