@@ -89,31 +89,18 @@ Amazon EC2 provides resizable virtual server capacity in the cloud. Key concepts
 
 ## Amazon Elastic Container Service (ECS)
 
-Amazon ECS is a highly scalable, high-performance container orchestration service that supports Docker containers. ECS enables you to easily deploy, manage, and scale containerized applications. ECS provides a variety of features to help you manage your containerized applications, including:
+Amazon ECS is a managed container orchestration service that supports Docker containers. ECS enables you to deploy, manage, and scale containerized applications. ECS provides a variety of features to help you manage your containerized applications, including:
 
-- **Service discovery:** ECS automatically discovers and registers your containers, so you can easily access them from your application.
-- **Load balancing:** ECS automatically distributes traffic across your containers, so you can ensure that your application is highly available.
-- **Health monitoring:** ECS monitors the health of your containers and automatically restarts any unhealthy containers.
-- **Auto scaling:** ECS can automatically scale your containers up or down based on demand, so you can ensure that your application has the resources it needs.
+- **Service discovery:** Service Connect and AWS Cloud Map let services find each other by name.
+- **Load balancing:** ECS services register tasks with Application or Network Load Balancer target groups.
+- **Health monitoring:** The ECS service scheduler replaces tasks that fail container or load balancer health checks.
+- **Auto scaling:** Service Auto Scaling adjusts the desired task count based on metrics such as CPU, memory, or request count.
 
 Key points about Amazon ECS for architecture and operations:
 
-- ECS is a highly scalable, high-performance container orchestration service.
 - ECS supports Docker containers and OCI compliant images.
-- ECS offers various launch types, including EC2 and serverless AWS Fargate.
-- ECS provides a variety of features to help you manage your containerized applications, including service discovery, load balancing, health monitoring, auto scaling, and deep integration with persistent storage.
-- ECS Anywhere extends ECS to run containers on your own infrastructure (on-premises, other clouds).
-
-Here are some additional details about Amazon ECS that you may want to know:
-
-- ECS can be used to deploy and manage containerized applications in any AWS Region.
-- ECS can be used to deploy and manage containerized applications of any size, from a small website to a large enterprise application.
-- ECS can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, Amazon Route 53, Amazon EBS, and Amazon EFS.
+- Compute options: Fargate (serverless), EC2 (instances you manage), ECS Managed Instances (AWS provisions and patches the EC2 instances in your account), and ECS Anywhere (External) for servers you run on-premises or in other clouds.
 - Supports Windows Containers for specific workloads.
-- The AWS Copilot CLI simplifies deployment and management of containerized applications on ECS.
-- Emphasizes security and isolation by design for containerized workloads.
-
-ECS is a powerful tool for managing containerized applications. It is easy to use and it provides a variety of features to help you deploy, manage, and scale your containerized applications securely and efficiently.
 
 ## Amazon Elastic Container Registry (ECR)
 
