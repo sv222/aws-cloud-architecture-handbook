@@ -216,23 +216,19 @@ AWS Transfer Family is a managed service that makes it easy to transfer files ov
 
 Key points about AWS Transfer Family for architecture and operations:
 
-- AWS Transfer Family is a managed service that makes it easy to transfer files over SFTP, FTPS, and FTP.
-- AWS Transfer Family provides a secure and reliable way to transfer files between your on-premises systems and AWS storage services.
+- Protocol availability depends on the endpoint type:
+  - Public endpoints support SFTP only.
+  - VPC endpoints with internet access support SFTP, FTPS, and AS2.
+  - VPC endpoints with internal access support SFTP, FTP, FTPS, and AS2.
+- FTP sends data and credentials in clear text, so it is available only on VPC internal endpoints.
+- FTPS supports explicit mode only and requires a certificate in AWS Certificate Manager.
+- AS2 requires a VPC endpoint and Amazon S3 storage. Amazon EFS is not supported for AS2.
 - AWS Transfer Family supports a variety of SFTP clients, including WinSCP, Cyberduck, and FileZilla.
 - AWS Transfer Family provides a variety of features to help you manage your file transfers, including:
-  - User and group management (including integration with AWS IAM and Active Directory)
+  - Identity providers: service-managed users (SFTP only), AWS Directory Service for Microsoft AD (password authentication, with access granted by AD group), or custom identity providers backed by AWS Lambda or Amazon API Gateway
   - Access control (using IAM roles and policies)
-  - Activity logging (via CloudTrail)
-  - File transfer notifications (using Amazon SNS)
-  - Support for multiple authentication methods, including password, SSH keys, and directory service integration.
-
-Here are some additional details about AWS Transfer Family that you may want to know:
-
-- AWS Transfer Family can be used to transfer files of any size, from small text files to large video files.
-- AWS Transfer Family can be used to transfer files between your on-premises systems and AWS storage services in any AWS Region.
-- AWS Transfer Family can be integrated with a variety of other AWS services, such as AWS CloudTrail and Amazon CloudWatch.
-
-AWS Transfer Family is a powerful tool for transferring files over SFTP securely and reliably. It is easy to use and it provides a variety of features to help you manage your file transfers efficiently.
+  - Activity logging (API calls in AWS CloudTrail, and transfer logs in Amazon CloudWatch)
+  - File transfer notifications (EventBridge events can be sent to Amazon SNS topics)
 
 ## AWS Direct Connect
 
