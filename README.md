@@ -252,33 +252,26 @@ Here are some additional details about AWS Direct Connect that you may want to k
 
 ## Amazon Simple Storage Service (S3)
 
-Amazon S3 is a highly scalable, durable, and available object storage service that is designed for storing and retrieving any amount of data, from anywhere on the web. S3 provides a secure, durable, and low-cost storage infrastructure to host your static websites, store data used by web services, mobile applications, backup and restore, archiving and disaster recovery, analytics, big data applications, and machine learning workloads.
+Amazon S3 is a highly scalable, durable, and available object storage service for storing and retrieving any amount of data. It is commonly used to host static websites, store data for web and mobile applications, back up and restore data, archive data, support disaster recovery, and run analytics and machine learning workloads.
 
 Key points about Amazon S3 for architecture and operations:
 
-- S3 is a highly scalable, durable, and available object storage service.
-- S3 can be used to store any type of data, including web pages, images, videos, and databases.
-- S3 is secure, durable, and low-cost.
-- S3 is easy to use and provides a variety of features to help you manage your data, including:
+- S3 stores objects in buckets, which are logical containers for your data. Each object is identified by its key (name) and, if versioning is enabled, a version ID.
+- Objects can be up to 50 TB. Single PUT requests are limited to 5 GB, so use multipart upload for larger objects (up to 10,000 parts, each 5 MiB to 5 GiB).
+- S3 provides strong read-after-write consistency for PUT and DELETE requests in all AWS Regions.
+- SSE-S3 is the default encryption for all buckets. SSE-KMS, DSSE-KMS (dual-layer encryption with AWS KMS keys), and SSE-C are also available. SSE-C is disabled by default for new buckets and must be enabled explicitly.
+- New buckets have all four Block Public Access settings enabled and ACLs disabled (bucket owner enforced).
+- S3 provides features to manage your data, including:
   - Object versioning
-  - Access control (IAM, Bucket Policies, Access Points, Access Grants)
-  - Bucket policies
-  - Server-side encryption (SSE-S3, SSE-KMS, SSE-C)
+  - Access control with IAM policies, bucket policies, access points, and Access Grants
   - Static website hosting
-  - S3 Storage Lens (for organization-wide visibility)
+  - S3 Storage Lens (organization-wide visibility)
   - S3 Object Lambda (process data as it is retrieved; closed to new customers since November 7, 2025)
 
 Here are some additional details about Amazon S3 that you may want to know:
 
-- S3 stores data in buckets, which are logical containers for your data.
-- S3 objects are uniquely identified by a key (name) and a version ID (if versioning is enabled).
-- S3 objects can be up to 5 TB in size.
-- S3 offers a variety of storage classes to meet your needs, including S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, S3 Glacier Deep Archive, and S3 Express One Zone.
-- S3 can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon CloudFront, AWS Lambda, AWS Storage Gateway, and AWS Lake Formation.
-- S3 Access Grants for simplified data access management.
-- S3 Express One Zone for high-performance access.
-
-Amazon S3 is a powerful tool for storing and retrieving any amount of data. It is easy to use and provides a variety of features to help you manage your data securely, reliably, and efficiently.
+- S3 offers these storage classes: S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, S3 Glacier Deep Archive, and S3 Express One Zone.
+- S3 can be integrated with other AWS services, such as Amazon EC2, Amazon CloudFront, AWS Lambda, AWS Storage Gateway, and AWS Lake Formation.
 
 ## Amazon Elastic Block Store (EBS)
 
