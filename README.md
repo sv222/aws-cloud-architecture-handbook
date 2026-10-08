@@ -279,27 +279,23 @@ Elastic Block Store (EBS) is a block-level storage service designed for use with
 
 EBS volumes are available in six volume types:
 
-- **General Purpose SSD (gp3):** Recommended for most workloads. Baseline 3,000 IOPS and 125 MB/s throughput, scalable to 80,000 IOPS and 2,000 MB/s.
-- **Provisioned IOPS SSD (io2 Block Express):** Highest performance SSD for mission-critical applications. Supports up to 256,000 IOPS and 4,000 MB/s throughput per volume. Supports Multi-Attach.
+- **General Purpose SSD (gp3):** Recommended for most workloads. Baseline 3,000 IOPS and 125 MiB/s throughput, scalable to 80,000 IOPS and 2,000 MiB/s.
+- **Provisioned IOPS SSD (io2 Block Express):** Highest performance SSD for mission-critical applications. Supports up to 256,000 IOPS and 4,000 MiB/s throughput per volume, which requires Nitro-based instances.
 - **Throughput Optimized HDD (st1):** Cost-effective for frequently accessed, throughput-intensive workloads like big data.
 - **Cold HDD (sc1):** Lowest cost HDD for less frequently accessed workloads.
-- **io1 (Legacy):** Previous generation Provisioned IOPS SSD.
-- **gp2 (Legacy):** Previous generation General Purpose SSD.
-- **EBS Snapshots Archive:** Cost-effective long-term storage for EBS snapshots.
+- **io1:** Provisioned IOPS SSD with up to 64,000 IOPS and 1,000 MiB/s per volume. io2 Block Express offers higher durability and a higher IOPS-to-GiB ratio.
+- **gp2:** General Purpose SSD with IOPS tied to volume size (3 IOPS per GiB, up to 16,000 IOPS and 250 MiB/s). gp3 is the lower-cost option, with IOPS and throughput provisioned separately from size.
 
-EBS volumes can be attached to EC2 instances at any time, and they can be scaled up without downtime; volumes cannot be shrunk. EBS volumes can also be used to create snapshots, which are point-in-time copies of an EBS volume. Snapshots can be used to create new EBS volumes, or to restore an EBS volume to a previous state.
-
-EBS is an important part of the AWS Well-Architected Framework. The Well-Architected Framework is a set of best practices for designing and building cloud architectures. The Well-Architected Framework recommends using EBS for persistent storage for all applications running on EC2 instances.
+EBS volumes can be increased in size without downtime (Elastic Volumes), but they cannot be decreased. EBS volumes can also be used to create snapshots, which are point-in-time copies of an EBS volume. Snapshots can be used to create new EBS volumes or to restore an EBS volume to a previous state. Snapshots can also be moved to the lower-cost archive tier for long-term retention, but an archived snapshot must be restored before you can create a volume from it.
 
 Key points about EBS for architecture and operations:
 
-- EBS volumes are attached to EC2 instances using block device mappings.
-- EBS volumes can be encrypted at rest using AWS Key Management Service (KMS).
-  - When a volume is encrypted, data in transit between the instance and the volume is also encrypted.
+- An EBS volume can only be attached to an instance in the same Availability Zone.
+- io1 and io2 volumes support Multi-Attach, which lets up to 16 Nitro-based instances in the same Availability Zone attach one volume.
+- EBS volumes can be encrypted at rest using AWS Key Management Service (KMS). Data in transit between the instance and the volume is also encrypted.
+  - Encryption by default is a per-Region account setting that encrypts all new volumes.
 - EBS volumes can be used to create RAID arrays.
-- EBS volumes can be used to create boot volumes for EC2 instances.
-- EBS volumes can be used to create root volumes for EC2 instances.
-- EBS volumes can be used to create data volumes for EC2 instances.
+- EBS volumes can serve as root (boot) volumes or additional data volumes for EC2 instances.
 
 ## Amazon Elastic File System (EFS)
 
