@@ -322,22 +322,25 @@ Here are some additional details about EFS that you may want to know:
 
 ## Amazon Relational Database Service (RDS)
 
-Amazon Relational Database Service (RDS) is a managed database service that provides a relational database infrastructure for deploying, scaling, and managing relational databases in the cloud. RDS supports a variety of database engines, including MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, and Amazon Aurora.
+Amazon Relational Database Service (RDS) is a managed database service that provides a relational database infrastructure for deploying, scaling, and managing relational databases in the cloud.
 
 Key points about RDS for architecture and operations:
 
-- RDS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
-- RDS supports a variety of database engines, including MySQL, PostgreSQL, MariaDB, Oracle Database, Microsoft SQL Server, IBM Db2, and Amazon Aurora.
+- RDS is a fully managed service. AWS handles the underlying infrastructure, and you choose instance classes, storage, and maintenance windows.
+- RDS runs MySQL, MariaDB, PostgreSQL, Oracle Database, Microsoft SQL Server, and IBM Db2. Amazon Aurora is a separate MySQL- and PostgreSQL-compatible engine that is also managed through the RDS API and console.
 - RDS provides high availability and durability for your databases.
 - RDS offers a variety of features to help you secure your databases, including encryption, access control, auditing, and integration with AWS Secrets Manager.
-- RDS can be used to deploy a wide range of database workloads, including web applications, content management systems, and enterprise applications.
 
 Here are some additional details about RDS that you may want to know:
 
-- RDS instances can be deployed in a variety of deployment options, including single-AZ, Multi-AZ (with standby or Multi-AZ DB cluster deployments), and read replicas.
-- RDS instances can be backed up automatically to Amazon Simple Storage Service (S3).
+- Deployment options include single-AZ, Multi-AZ with a standby, Multi-AZ DB clusters (MySQL and PostgreSQL only), and read replicas.
+- RDS stores automated backups in Amazon Simple Storage Service (S3). The retention period is 0 to 35 days, and 0 turns automated backups off.
 - RDS instances can be restored from backups to create new RDS instances.
-- RDS storage can be scaled up without downtime, and Multi-AZ deployments minimize downtime during instance changes.
+- Increasing storage usually doesn't cause an outage. Each increase must be at least 10% larger than the current size, up to four storage modifications fit in 24 hours, and storage can't be reduced. Storage autoscaling grows storage automatically when free space runs low.
+- Multi-AZ deployments minimize downtime during instance changes.
+- Blue/Green deployments create a synchronized staging copy for testing engine upgrades and changes. Switchover usually takes under a minute.
+- RDS Proxy pools database connections and keeps the application endpoint stable during failover.
+- Engine versions that reach RDS end of standard support are enrolled in Extended Support automatically. Extended Support costs extra and runs for up to three years, so plan the upgrade before its end date.
 - RDS databases can be migrated between engines using the AWS Schema Conversion Tool and AWS Database Migration Service.
 
 ## Amazon Aurora
