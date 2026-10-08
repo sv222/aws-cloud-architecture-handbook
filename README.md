@@ -299,26 +299,26 @@ Key points about EBS for architecture and operations:
 
 ## Amazon Elastic File System (EFS)
 
-Amazon Elastic File System (EFS) is a cloud-based, elastic file system that provides a simple, scalable, and durable way to share files across multiple Amazon Elastic Compute Cloud (EC2) instances and on-premises servers. EFS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your storage.
-
-EFS file systems are highly available and durable, and they can scale to petabytes of data. EFS also provides strong consistency and file locking, making it a good choice for a wide range of workloads, including web applications, content management systems, and databases.
+Amazon Elastic File System (EFS) is a fully managed, elastic file system that lets multiple Amazon Elastic Compute Cloud (EC2) instances and on-premises servers share files.
 
 Key points about EFS for architecture and operations:
 
-- EFS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your storage.
-- EFS file systems are highly available and durable, and they can scale to petabytes of data.
-- EFS provides strong consistency and file locking.
+- Regional file systems store data redundantly across multiple Availability Zones. One Zone file systems store data in a single Availability Zone at lower cost.
+- EFS scales to petabytes of data without provisioning capacity.
+- EFS provides close-to-open consistency, as NFS clients expect, and NFSv4 byte-range file locking. Locks are advisory, so applications must handle NFS semantics themselves.
+- Throughput modes are Elastic (recommended), Provisioned, and Bursting.
+- General Purpose is the default performance mode and is recommended for all file systems. The performance mode can't be changed after the file system is created.
 - EFS can be used with EC2 instances, Amazon Elastic Container Service (ECS), Amazon Elastic Kubernetes Service (EKS), AWS Lambda functions, and AWS Fargate.
-- EFS can be used to store data for a wide range of workloads, including web applications, content management systems, databases, and machine learning.
-- EFS One Zone storage class for cost-optimized storage.
-  - EFS Replication for data protection across regions or Availability Zones.
+- Storage classes are Standard, Infrequent Access (IA), and Archive. Lifecycle management can move files between them automatically.
 
 Here are some additional details about EFS that you may want to know:
 
-- EFS uses the Network File System (NFS) protocol to provide access to file systems.
+- EFS uses the Network File System (NFS) protocol. NFSv4.1 is preferred, and NFSv4.0 is also supported.
+  - Windows-based EC2 instances are not supported.
 - EFS file systems can be mounted on EC2 instances in your virtual private cloud (VPC).
 - EFS file systems can be accessed from on-premises servers using AWS Direct Connect or AWS VPN.
-  - EFS file systems can be encrypted using AWS Key Management Service (KMS).
+- EFS encrypts data at rest using AWS Key Management Service (KMS). The encryption key is chosen when the file system is created.
+- EFS Replication copies a file system to a destination in the same AWS Region or another Region. The destination is read-only until you delete the replication configuration.
 
 ## Amazon Relational Database Service (RDS)
 
