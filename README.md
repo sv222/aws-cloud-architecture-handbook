@@ -345,22 +345,19 @@ Here are some additional details about RDS that you may want to know:
 
 ## Amazon Aurora
 
-Amazon Aurora is a relational database service that combines the performance and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. Aurora is MySQL and PostgreSQL compatible, so developers can use existing code, skills, and tools to build new applications, or migrate existing applications to the cloud.
+Amazon Aurora is a relational database service that is MySQL and PostgreSQL compatible, so developers can use existing code, skills, and tools to build new applications, or migrate existing applications to the cloud.
 
 Key points about Aurora for architecture and operations:
 
-- Aurora is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
-- Aurora is compatible with MySQL and PostgreSQL, so developers can use existing code, skills, and tools to build new applications, or migrate existing applications to the cloud.
-- Aurora delivers up to six times the throughput of standard MySQL and PostgreSQL databases, and it offers 99.99% availability.
-- Aurora is cost-effective, and it offers a variety of features to help you save money, such as automatic scaling, reserved instances, and serverless options.
-- Aurora can be used to deploy a wide range of database workloads, including web applications, content management systems, enterprise applications, and machine learning.
+- Aurora is a fully managed service, so you don't have to worry about provisioning or managing the underlying infrastructure.
+- Aurora delivers up to six times the throughput of standard MySQL and PostgreSQL databases, and it offers up to 99.99% availability.
 
 Here are some additional details about Aurora that you may want to know:
 
 - Aurora uses a distributed storage system to achieve high performance and availability.
-- Aurora supports multiple Availability Zones for high availability and disaster recovery.
-- Aurora offers continuous backup and point-in-time recovery.
-- Aurora can be scaled up or down without downtime.
+- Aurora supports up to 15 Aurora Replicas across multiple Availability Zones for high availability and disaster recovery.
+- Aurora offers continuous backup and point-in-time recovery, with a retention period of 1 to 35 days.
+- Changing an instance's class causes downtime for that instance. Other instances in the cluster stay up. To shorten the interruption, add a replica of the new size and fail over to it.
 - Aurora is compatible with Amazon RDS tools and APIs.
 
 ## Amazon DynamoDB
