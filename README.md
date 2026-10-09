@@ -362,24 +362,22 @@ Here are some additional details about Aurora that you may want to know:
 
 ## Amazon DynamoDB
 
-Amazon DynamoDB is a fully managed, multi-region, multi-master, durable NoSQL database with built-in security, backup and restore, and in-memory caching for internet-scale applications. DynamoDB provides single-digit millisecond performance at any scale. It's a flexible and scalable database that can be used for a wide range of workloads, including mobile, web, gaming, ad tech, IoT, and more.
+Amazon DynamoDB is a fully managed, durable NoSQL database with built-in security, backup and restore, and global tables for multi-Region, multi-active replication. DynamoDB provides single-digit millisecond performance at any scale.
 
 Key points about DynamoDB for architecture and operations:
 
 - DynamoDB is a NoSQL database, which means that it does not use a traditional relational database schema.
-- DynamoDB is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
 - DynamoDB is highly available and durable, and it can scale to petabytes of data.
-- DynamoDB provides single-digit millisecond performance at any scale.
-- DynamoDB is cost-effective, and it offers a variety of features to help you save money, such as reserved capacity, provisioned throughput, and on-demand capacity mode.
-- DynamoDB can be used to deploy a wide range of database workloads, including mobile, web, gaming, ad tech, IoT, and machine learning.
-- DynamoDB Accelerator (DAX) for in-memory caching.
+- DynamoDB has two capacity modes. On-demand bills per read and write request. Provisioned bills for provisioned read and write capacity per hour, and auto scaling can adjust that capacity. Reserved capacity, with a one- or three-year commitment, lowers the cost of provisioned tables.
+- DynamoDB Accelerator (DAX) is a separate managed in-memory cache cluster in front of tables. It is not built into the table service.
 
 Here are some additional details about DynamoDB that you may want to know:
 
 - DynamoDB uses a key-value and document data model, supporting both eventually consistent and strongly consistent reads.
-- DynamoDB tables are made up of items, which are collections of attribute-value pairs.
+- DynamoDB tables are made up of items, which are collections of attribute-value pairs. An item can be up to 400 KB, including attribute names and values. Store larger objects in Amazon S3 and keep a pointer to them in the item.
 - Each DynamoDB table has a single primary key, either a partition key alone or a partition key plus sort key, which is used to identify and retrieve items.
 - DynamoDB tables can also have secondary indexes (Global Secondary Indexes and Local Secondary Indexes), which are used to query items based on attribute values.
+- Point-in-time recovery restores a table to any second within a window of 1 to 35 days. The default window is 35 days.
 - DynamoDB offers a variety of APIs for accessing and managing data, including the AWS SDKs, the AWS CLI, and the AWS Management Console.
 
 ## Amazon Redshift
