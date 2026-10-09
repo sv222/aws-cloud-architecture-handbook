@@ -580,34 +580,18 @@ Here are some additional details that you may want to know:
 
 ## AWS Key Management Service (KMS)
 
-AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the cryptographic keys that are used to protect your data. KMS provides a range of features that make it easy to manage your keys securely, including:
-
-- **Key generation:** KMS can generate high-quality cryptographic keys for you.
-- **Key storage:** KMS stores your keys in a highly secure environment.
-- **Key rotation:** KMS can rotate your keys on a regular basis to help protect them from compromise.
-- **Key auditing:** KMS provides detailed auditing of all key operations.
+AWS Key Management Service (KMS) is a managed service that makes it easy for you to create and control the cryptographic keys that are used to protect your data.
 
 Key points about AWS Key Management Service (KMS) for architecture and operations:
 
-- KMS is a managed service that makes it easy to create and control the cryptographic keys that are used to protect your data.
-- KMS provides a range of features that make it easy to manage your keys securely, including key generation, key storage, key rotation, and key auditing.
-- KMS can be used to encrypt data at rest and in transit.
-- KMS encrypts data up to 4KB in size per call. For larger data, use envelope encryption with the AWS Encryption SDK.
-- KMS supports custom key stores backed by CloudHSM or external key managers.
-- KMS can be used to manage keys for a variety of AWS services, including Amazon S3, Amazon RDS, Amazon EBS, Amazon DynamoDB, and AWS Lambda.
-- KMS supports symmetric and asymmetric encryption keys, and HMAC keys.
-
-Here are some additional details that you may want to know:
-
-- KMS uses a variety of security measures to protect your keys, including hardware security modules (HSMs) and encryption.
-- KMS is highly available and durable.
-- KMS is integrated with a variety of other AWS services.
-
-Example use cases of KMS:
-
-- **Encrypting data at rest:** KMS can be used to encrypt data at rest in Amazon S3, Amazon RDS, and Amazon EBS. This helps to protect your data from unauthorized access, even if the underlying storage media is compromised.
-- **Encrypting data in transit:** KMS can be used to encrypt data in transit between AWS services. This helps to protect your data from eavesdropping and man-in-the-middle attacks.
-- **Managing keys for a variety of AWS services:** KMS can be used to manage keys for a variety of AWS services, in addition to Amazon S3, Amazon RDS, and Amazon EBS. This includes services such as Amazon CloudFront, Amazon OpenSearch Service, and Amazon Redshift.
+- KMS supports symmetric encryption keys, asymmetric keys, and HMAC keys.
+- KMS encrypts up to 4,096 bytes of plaintext per Encrypt call with a symmetric key. For larger data, generate a data key with GenerateDataKey and encrypt the data locally (envelope encryption), or use the AWS Encryption SDK.
+- Automatic rotation is set per key. AWS managed keys rotate every year, and you cannot change that schedule. Customer managed keys have rotation off by default. When enabled, they rotate every 365 days by default, and you can set a period from 90 to 2,560 days. Automatic rotation applies only to symmetric keys with AWS-generated key material.
+- Scheduled key deletion waits 7 to 30 days (30 days by default) before KMS removes the key. The key cannot be used for cryptographic operations while it is pending deletion, and you can cancel the deletion before the waiting period ends.
+- Custom key stores are backed by an AWS CloudHSM cluster or by an external key store (XKS) proxy that connects to a key manager outside AWS. The store type cannot be changed after creation.
+- KMS API calls require TLS 1.2 or later. Protecting data in transit between your services is done with TLS, not with KMS keys.
+- KMS integrates with many AWS services, including Amazon S3, Amazon RDS, Amazon EBS, Amazon DynamoDB, AWS Lambda, Amazon CloudFront, Amazon OpenSearch Service, and Amazon Redshift. Integrated services use KMS to encrypt data at rest.
+- AWS CloudTrail records KMS API calls, including key creation and scheduled deletion.
 
 ## AWS Security Hub
 
