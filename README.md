@@ -382,7 +382,7 @@ Here are some additional details about DynamoDB that you may want to know:
 
 ## Amazon Redshift
 
-Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. Redshift makes it simple and cost-effective to analyze all your data using standard SQL and existing BI tools. Redshift is up to 100 times faster than traditional data warehouses, and it offers a variety of features to help you analyze your data, including:
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You analyze data with standard SQL and existing BI tools. Redshift is up to 100 times faster than traditional data warehouses, and it offers a variety of features to help you analyze your data, including:
 
 - **Massively parallel processing (MPP):** Redshift uses MPP to distribute data across multiple compute nodes, allowing it to process large datasets quickly and efficiently.
 - **Columnar storage:** Redshift stores data in columns, which significantly improves performance for analytical queries.
@@ -390,21 +390,16 @@ Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the
 - **Materialized Views:** Pre-compute and store results of complex queries for faster access.
 - **Concurrency Scaling:** Automatically adds capacity to handle concurrent queries.
 - **Redshift ML:** Create, train, and deploy machine learning models directly from Redshift.
-- **SQL compatibility:** Redshift is compatible with standard SQL, so you can use existing BI tools to analyze your data.
 - **Redshift Serverless:** Run and scale data warehouse workloads without managing infrastructure.
 
 Key points about Redshift for architecture and operations:
 
-- Redshift is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your data warehouse.
-- Redshift is up to 100 times faster than traditional data warehouses.
-- Redshift is compatible with standard SQL.
 - Redshift is cost-effective, and it offers a variety of features to help you save money, such as reserved nodes.
-- Redshift can be used to deploy a wide range of data warehouse workloads, including analytics, business intelligence, and machine learning.
+- Provisioned clusters use RA3 nodes, which separate compute from managed storage. DS2 node types are no longer available.
 
 Here are some additional details about Redshift that you may want to know:
 
-- Redshift clusters can be deployed in a variety of sizes, from small clusters for development and testing to large clusters for production workloads.
-- Redshift clusters can be scaled up or down (resize) or scaled out (Concurrency Scaling) without downtime.
+- Resizing a provisioned cluster makes it unavailable for a few minutes. Elastic resize is the faster option, with a shorter outage than classic resize. Concurrency Scaling is separate and adds temporary capacity for concurrent queries.
 - Redshift clusters can be backed up automatically to Amazon Simple Storage Service (S3).
 - Redshift clusters can be restored from backups to create new Redshift clusters.
 - Redshift can be integrated with a variety of other AWS services, such as Amazon Athena, Amazon EMR, and Amazon QuickSight.
