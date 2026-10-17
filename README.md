@@ -630,13 +630,13 @@ AWS CloudFormation is a service that helps you model and set up your AWS infrast
 
 Key points about AWS CloudFormation for architecture and operations:
 
-- CloudFormation is a service that helps you model and set up your AWS infrastructure resources.
-- CloudFormation uses templates to define a collection of AWS resources and the dependencies between them.
 - CloudFormation templates can be written in JSON or YAML.
-- CloudFormation templates can be used to deploy, update, or delete your infrastructure in a controlled and repeatable manner.
-- CloudFormation can be used to implement best practices, such as infrastructure as code and idempotency, and version control.
+- Change sets show the planned changes before you run an update, including which resources will be replaced.
+- By default, a failed stack create or update rolls back to the last stable state. Use `DisableRollback` (or `OnFailure` set to `DO_NOTHING` on create) to keep failed resources in place for troubleshooting.
+- Set `DeletionPolicy` on stateful resources. Without it, deleting a stack deletes its resources, except RDS DB instances and clusters, which default to `Snapshot`. Use `Retain` to keep a resource after stack deletion.
 - CloudFormation Drift Detection helps identify when your deployed stack configuration differs from its template.
-- CloudFormation Hooks allow you to invoke custom logic before or after resource operations.
+- CloudFormation Hooks evaluate resource configuration before it is provisioned. A hook can fail the operation (FAIL mode) or only warn (WARN mode).
+- CloudFormation Guard is a policy-as-code language. Its rules can run as Guard hooks to block or warn on non-compliant changes.
 
 Here are some additional details that you may want to know:
 
@@ -645,14 +645,11 @@ Here are some additional details that you may want to know:
 - CloudFormation templates can be versioned, allowing you to track changes to your infrastructure over time.
 - CloudFormation can be integrated with other AWS services, such as AWS CodePipeline, AWS Systems Manager, and AWS Service Catalog.
 - CloudFormation supports resource import to bring existing resources under CloudFormation management.
-- CloudFormation supports CloudFormation Guard for policy as code.
-- CloudFormation StackSets allow you to deploy CloudFormation stacks across multiple accounts and regions.
+- CloudFormation StackSets allow you to deploy CloudFormation stacks across multiple accounts and Regions.
 
-Example use cases of CloudFormation:
+Example use case of CloudFormation:
 
 - **Deploying a web application:** CloudFormation can be used to deploy a web application, including the Amazon EC2 instances, Amazon RDS databases, and Amazon S3 buckets that are required.
-- **Creating a development environment:** CloudFormation can be used to create a development environment, including the Amazon EC2 instances, Amazon RDS databases, and Amazon S3 buckets that are required.
-- **Implementing a disaster recovery plan:** CloudFormation can be used to implement a disaster recovery plan, including the Amazon EC2 instances, Amazon RDS databases, and Amazon S3 buckets that are required.
 
 ## AWS Systems Manager
 
