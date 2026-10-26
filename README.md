@@ -406,22 +406,22 @@ Here are some additional details about Redshift that you may want to know:
 
 ## Amazon Simple Queue Service (SQS)
 
-Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. SQS offers a simple, reliable, and scalable way to decouple and scale distributed systems and microservices. It is a highly available, durable, and scalable hosted queue for storing messages as they travel between applications or microservices. SQS moves data between distributed application components and helps you decouple these components.
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service. It stores messages as they travel between applications or microservices, so producers and consumers can run and scale independently.
 
 Key points about SQS for architecture and operations:
 
-- SQS is a message queuing service, which means that it stores messages as they travel between applications or microservices.
 - SQS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your queue.
+- Standard queues deliver messages at least once, with best-effort ordering, so consumers must handle duplicates.
+- FIFO queues provide exactly-once processing and strict ordering, with lower throughput limits. High throughput mode raises those limits. Sends with the same deduplication ID are treated as duplicates within a 5-minute interval.
 - SQS is highly available and durable, and it can scale to millions of messages per second.
-- SQS is cost-effective, and it offers a variety of features to help you save money, such as pay-as-you-go pricing and dead-letter queues.
-- SQS can be used to decouple and scale a wide range of applications and microservices, including web applications, mobile applications, and IoT applications.
-- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, Amazon EventBridge, and Amazon S3.
 
 Here are some additional details about SQS that you may want to know:
 
-- SQS offers two types of queues: Standard Queues (at-least-once delivery, best-effort ordering) and FIFO Queues (exactly-once processing, strict ordering).
-- SQS queues can be configured with different visibility timeouts, which determines how long a message is visible to consumers before it is automatically hidden.
+- After a consumer receives a message, the message is hidden from other consumers for the visibility timeout. The default is 30 seconds, and the maximum is 12 hours. If the message is not deleted before the timeout expires, it becomes visible again and can be received again. Set the timeout above your worst-case processing time, or extend it with `ChangeMessageVisibility`.
 - SQS queues can be configured with dead-letter queues, which are queues where messages are sent if they cannot be processed successfully.
+- Messages are retained for 4 days by default. Retention ranges from 1 minute to 14 days.
+- The maximum message size is 1 MiB. For larger payloads, store the body in Amazon S3 and send a reference by using the SQS Extended Client Library.
+- Long polling (`ReceiveMessage` with `WaitTimeSeconds` up to 20) returns as soon as a message arrives, and reduces empty responses compared with short polling.
 - SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, Amazon EventBridge, and Amazon S3.
 
 ## Amazon Simple Notification Service (SNS)
