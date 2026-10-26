@@ -474,33 +474,27 @@ Here are some additional details about API Gateway that you may want to know:
 
 ## Amazon Cognito
 
-Amazon Cognito is a fully managed user identity and access management (IAM) service that allows you to easily add user authentication, authorization, and management to your web and mobile applications. Cognito provides features such as user registration, sign-in, sign-out, password recovery, and access control, so you can focus on building great user experiences.
+Amazon Cognito is a fully managed service that allows you to easily add user authentication, authorization, and management to your web and mobile applications. Cognito provides features such as user registration, sign-in, sign-out, password recovery, and access control.
 
 Cognito can be used to authenticate users with a variety of methods, including:
 
 - **Username and password**
 - **Social login** (e.g., Facebook, Google, Amazon, Apple)
-- **Multi-factor authentication (MFA)** with SMS or TOTP
+- **Multi-factor authentication (MFA)** with SMS, TOTP authenticator apps, or email (email requires the Essentials or Plus plan)
+- **Passkeys** (not available in the Lite plan)
 - **Custom authentication schemes** (e.g., using AWS Lambda)
 - **SAML and OIDC federation** for enterprise identities
 
-Cognito can also be used to authorize users to access your resources. For example, you can use Cognito to create user groups and roles, and then assign permissions to those groups and roles. This allows you to control who has access to what resources in your application. Cognito integrates with AWS IAM for fine-grained access control.
-
-Cognito is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your IAM infrastructure. Cognito is also highly available and durable, so you can be confident that your users will be able to access your application when they need it.
+Cognito can also authorize users for AWS resources. User pool groups can be assigned IAM roles, and an identity pool then gives members temporary AWS credentials with the permissions of those roles. Identity pool rules can also choose a role from token claims.
 
 Key points about Amazon Cognito for architecture and operations:
 
-- Cognito is a fully managed user identity and access management (IAM) service.
-- Cognito can be used to authenticate users with a variety of methods, including username and password, social login, MFA, and custom authentication schemes.
-- Cognito can also be used to authorize users to access your resources.
-- Cognito is a highly available and durable service.
+- Cognito is a fully managed service for end-user identity. AWS IAM still controls which AWS resources a signed-in user can reach.
+- User pools handle sign-up and sign-in and issue JWT tokens. Identity pools exchange those identities for temporary AWS credentials.
 
 Here are some additional details about Amazon Cognito that you may want to know:
 
-- Cognito User Pools provide a secure user directory for sign-up and sign-in, managing user profiles, and issuing JWT tokens.
-- Cognito Identity Pools (Federated Identities) enable you to grant your users temporary AWS credentials to access AWS services directly.
-- Cognito supports various identity providers, including social (Facebook, Google, Apple, Amazon), SAML, and OIDC.
-- Cognito authorization can be used to control who has access to what resources in your application through IAM policies.
+- User pools come in Lite, Essentials, and Plus feature plans. Essentials is the default for new user pools. Managed login, passkeys, and email MFA require Essentials or Plus.
 - Cognito supports user migration for seamless transitions from existing user directories.
 - Cognito can be integrated with a variety of other AWS services, such as Amazon API Gateway, AWS Lambda, and Amazon S3.
 
