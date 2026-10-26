@@ -426,24 +426,25 @@ Here are some additional details about SQS that you may want to know:
 
 ## Amazon Simple Notification Service (SNS)
 
-Amazon Simple Notification Service (SNS) is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. SNS provides a simple, reliable, and scalable way to notify multiple subscribers about the availability of new data, such as messages in a queue or events in a database.
+Amazon Simple Notification Service (SNS) is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. A publisher sends a message to a topic once, and SNS delivers it to every subscriber of that topic.
 
 Key points about Amazon SNS for architecture and operations:
 
 - SNS is a pub/sub messaging service, which means that publishers send messages to topics, and subscribers receive messages from topics.
 - SNS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your messaging infrastructure.
 - SNS is highly available and durable, and it can scale to millions of messages per second.
-- SNS is cost-effective, and it offers a variety of features to help you save money, such as pay-as-you-go pricing and dead-letter queues.
-- SNS can be used to decouple and scale a wide range of applications and microservices, including web applications, mobile applications, and IoT applications.
 
 Here are some additional details about Amazon SNS that you may want to know:
 
 - SNS topics can have multiple subscribers, and subscribers can subscribe to multiple topics.
-- SNS messages can be sent in a variety of formats, including JSON, XML, and raw text.
+- Subscription filter policies deliver each message only to subscribers whose message attributes (or message body, if the filter scope is set to body) match the policy.
+- Raw message delivery sends the message body to Amazon SQS and HTTP/S subscribers without SNS metadata.
+- Messages are limited to 256 KiB by default. Set the topic's `MaximumMessageSize` attribute to raise the limit to 1 MiB. Above 256 KiB, only Amazon Data Firehose, Amazon SQS, and AWS Lambda subscriptions are supported.
 - SNS messages can be encrypted at rest (SSE) and in transit (HTTPS).
 - SNS messages can be delivered to a variety of endpoints, including email, SMS, HTTP/S, Amazon SQS queues, AWS Lambda functions, and mobile push notifications.
+- A subscription can have a dead-letter queue, which is an Amazon SQS queue in the same account and Region. Without one, SNS discards a message after its delivery retries are exhausted.
 - SNS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon CloudWatch, Amazon EventBridge, and Amazon Data Firehose.
-- SNS supports FIFO topics for strict message ordering, deduplication, and message grouping.
+- SNS supports FIFO topics for strict message ordering, deduplication, and message grouping. FIFO topic names must end in `.fifo`.
 
 ## Amazon API Gateway
 
