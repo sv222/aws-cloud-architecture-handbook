@@ -524,28 +524,29 @@ Here are some additional details about CloudWatch that you may want to know:
 
 ## AWS CloudTrail
 
-AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk mitigation by capturing, logging, storing, and delivering event log files that record API calls made to your AWS account and your resources. With CloudTrail, you can track user activity and API usage across your AWS services and resources.
+AWS CloudTrail records API calls and other account activity as event log files, and delivers them to storage for governance, compliance, and operational auditing. With CloudTrail, you can track user activity and API usage across your AWS services and resources.
 
 Key points about AWS CloudTrail for architecture and operations:
 
-- CloudTrail is a fully managed service that continuously logs all API calls made to your AWS account and your resources.
+- CloudTrail is a fully managed service. It records management events by default. Data events, such as S3 object-level activity, must be enabled explicitly.
 - CloudTrail logs can be delivered to Amazon S3 and Amazon CloudWatch Logs.
-- CloudTrail logs can be used to track user activity, troubleshoot problems, and audit your AWS environment.
-- CloudTrail event history retains the last 90 days of management events; CloudTrail Lake can retain events for up to 10 years.
+- Event history shows the last 90 days of management events in each Region, at no charge. To keep events longer, deliver logs from a trail to Amazon S3. CloudTrail Lake is closed to new customers as of May 31, 2026. Existing customers can continue to use it.
 
 Here are some additional details that you may want to know:
 
 - CloudTrail logs can be filtered to only include events that are of interest to you.
-- CloudTrail logs can be used to create alerts and notifications via CloudWatch Alarms.
+- Send a trail to CloudWatch Logs, then use metric filters and CloudWatch alarms to alert on matching events, such as root account usage.
+- A multi-Region trail logs activity from all Regions to one S3 bucket or CloudWatch Logs log group, and includes new Regions automatically.
+- Data events are not logged by default and do not appear in Event history. Add them to a trail for the resources you need.
+- With log file validation enabled, CloudTrail delivers hourly digest files that contain hashes of the log files it delivered. You can verify them with the AWS CLI.
 - CloudTrail logs can be integrated with other AWS services, such as AWS IAM, Amazon GuardDuty, and AWS Security Hub.
-- CloudTrail Lake allows for immutable storage and SQL-based querying of events.
 - CloudTrail Insights for anomaly detection.
 
 Example use cases of CloudTrail:
 
-- **Auditing:** CloudTrail logs can be used to audit all API calls made to your AWS account and your resources. This can help you to identify any suspicious activity or unauthorized access to your resources.
+- **Auditing:** CloudTrail logs can be used to audit API calls made to your AWS account and your resources. This can help you to identify any suspicious activity or unauthorized access to your resources.
 - **Troubleshooting:** CloudTrail logs can be used to troubleshoot problems with your AWS resources. For example, if you are experiencing a performance issue, you can review your CloudTrail logs to see what API calls were made leading up to the issue.
-- **Compliance:** CloudTrail logs can be used to help you comply with various industry regulations. For example, if you are subject to HIPAA compliance, you can use CloudTrail logs to track all access to your protected health information (PHI).
+- **Compliance:** CloudTrail logs can be used to help you comply with various industry regulations. For example, if you are subject to HIPAA compliance, you can track access to protected health information (PHI) in S3 by enabling S3 data events for the buckets that hold it, because management events do not record object reads.
 
 ## AWS Identity and Access Management (IAM)
 
