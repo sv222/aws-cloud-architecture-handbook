@@ -874,42 +874,18 @@ Once Macie has identified and classified sensitive data, it provides features to
 
 ## AWS IAM Access Analyzer
 
-AWS IAM Access Analyzer is a service that helps you identify, understand, and remediate potential security risks in your AWS Identity and Access Management (IAM) policies. Access Analyzer uses graph analysis to analyze your IAM policies and identify potential security risks, such as:
-
-- **Excessive permissions:** Access Analyzer can identify IAM policies that grant users or roles more permissions than they need.
-- **Unintended access:** Access Analyzer can identify IAM policies that grant users or roles access to resources that they should not have access to.
-- **Public access:** Access Analyzer can identify IAM policies that grant public access to resources.
-
-Access Analyzer also provides you with recommendations on how to remediate the security risks that it identifies.
+AWS IAM Access Analyzer helps you identify, understand, and remediate potential security risks in your AWS environment. It analyzes resource policies for access from outside your zone of trust (your account or organization), reports unused IAM access, and validates and generates IAM policies. Access Analyzer also provides you with recommendations on how to remediate the security risks that it identifies.
 
 **Key points about AWS IAM Access Analyzer for architecture and operations:**
 
-- AWS IAM Access Analyzer is a service that helps you identify, understand, and remediate potential security risks in your AWS IAM policies.
-- Access Analyzer uses graph analysis to analyze your IAM policies and identify potential security risks, such as excessive permissions, unintended access, and public access.
-- Access Analyzer also provides you with recommendations on how to remediate the security risks that it identifies.
-
-**Here are some additional details about AWS IAM Access Analyzer that you may want to know:**
-
-- Access Analyzer is a managed service, so you do not need to manage any infrastructure.
+- External access analyzers find resources that grant access to principals outside your zone of trust, including public access. Supported types include S3 buckets, IAM roles, KMS keys, SQS queues, EBS volume snapshots, and RDS DB and cluster snapshots. EC2 instances and RDS DB instances are not supported.
+- An analyzer evaluates only policies on resources in the Region where it is enabled.
+- Unused access analyzers cover IAM users and roles only. They flag roles with no activity within a time window, and services and actions that a role has not used within that window.
+- Policy validation is free. It checks policy grammar and best practices, such as an `iam:PassRole` permission with a wildcard `Resource`.
+- Custom policy checks use automated reasoning to check policy changes against your security standards, such as a change that is more permissive than the previous version. They run through the `CheckNoNewAccess` and `CheckAccessNotGranted` APIs and are billed per call.
+- Policy generation builds fine-grained IAM policies from AWS CloudTrail activity.
+- Access Analyzer supports multi-account analysis through AWS Organizations.
 - Access Analyzer can be integrated with a variety of other AWS services, such as Amazon EventBridge and Amazon Simple Notification Service (SNS), to automate your response to security findings.
-- Access Analyzer is available in all AWS Regions and supports multi-account analysis through AWS Organizations.
-
-**Here are some of the benefits of using AWS IAM Access Analyzer:**
-
-- **Improved security posture:** Access Analyzer can help you to identify and remediate potential security risks in your IAM policies, which can help to improve the security posture of your AWS environment.
-- **Reduced compliance risk:** Access Analyzer can help you to comply with data security regulations by identifying policies that grant unintended access.
-- **Reduced operational overhead:** Access Analyzer is a managed service, so you do not need to manage any infrastructure or develop any custom code to use it.
-
-Overall, AWS IAM Access Analyzer is a valuable tool for any organization that is using AWS. It can help you to improve the security of your AWS environment, reduce your compliance risk, and reduce your operational overhead.
-
-**In addition to the above, here are some other things to keep in mind about AWS IAM Access Analyzer:**
-
-- Access Analyzer can be used to analyze IAM policies for all types of IAM entities, including users, roles, groups, and services.
-- Access Analyzer can be used to analyze IAM policies for all types of AWS resources, including Amazon S3 buckets, Amazon EC2 instances, Amazon RDS databases, and KMS keys.
-- Access Analyzer can be used to analyze IAM policies for both new and existing IAM entities and resources.
-- Access Analyzer provides findings that highlight resources that are accessible from outside your AWS account.
-
-AWS IAM Access Analyzer is a powerful tool for improving the security of your AWS environment. It is easy to use and it provides a variety of features to help you identify, understand, and remediate potential security risks in your IAM policies.
 
 ## AWS CodePipeline
 
