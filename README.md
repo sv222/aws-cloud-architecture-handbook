@@ -839,27 +839,16 @@ GuardDuty can help you identify threats such as:
 
 ## Amazon Inspector
 
-Amazon Inspector is an automated security assessment service that helps you identify and remediate potential security vulnerabilities in your Amazon EC2 instances, container images stored in Amazon ECR, and AWS Lambda functions.
-
-Inspector uses a variety of assessment techniques, including static code analysis, dynamic analysis, and network analysis, to identify security vulnerabilities. Inspector also provides recommendations on how to remediate the vulnerabilities that it finds.
-
-Inspector is a valuable tool for improving the security of your AWS workloads. It is easy to use and it can help you identify and remediate security vulnerabilities that you may not be aware of.
+Amazon Inspector is an automated security assessment service that helps you identify and remediate potential security vulnerabilities in your Amazon EC2 instances, container images stored in Amazon ECR, and AWS Lambda functions. Its findings cover software vulnerabilities, network reachability of EC2 instances, and code vulnerabilities in Lambda functions when Lambda code scanning is enabled.
 
 **Key points about Amazon Inspector for architecture and operations:**
 
-- Inspector is an automated security assessment service that helps you identify and remediate potential security vulnerabilities in your Amazon EC2 instances, Amazon ECR container images, and AWS Lambda functions.
-- Inspector uses a variety of assessment techniques to identify security vulnerabilities, including automated agent-based scanning for EC2 instances and agentless scanning for container images in ECR.
-- Inspector also provides recommendations on how to remediate the vulnerabilities that it finds, prioritizing them by severity.
-- Inspector supports continuous scanning of your environment.
-
-**Here are some additional details about Amazon Inspector that you may want to know:**
-
-- Inspector is a managed service, so you do not need to manage any infrastructure.
-- Inspector can be integrated with AWS Systems Manager for agent deployment and management, and with Amazon EventBridge and AWS Lambda to automate your response to security findings.
-- Inspector is available in all AWS Regions and supports multi-account management through AWS Organizations.
-- Inspector scans for software vulnerabilities, unintended network exposure, and deviations from security best practices.
-
-Inspector is a powerful tool for improving the security of your AWS workloads. It is easy to use and it can help you identify and remediate security vulnerabilities that you may not be aware of.
+- EC2 scanning is agent-based, using the AWS Systems Manager (SSM) agent on the instance, or agentless, using EBS snapshots. Hybrid mode, which combines both, is the default.
+- ECR image scanning and Lambda standard scanning do not need an agent.
+- Lambda standard scanning is the default Lambda scan type and covers package dependencies in functions and layers. Lambda code scanning is an optional add-on that checks custom application code. It requires standard scanning and is available only in some Regions.
+- Inspector supports continuous scanning of your environment and prioritizes findings by severity.
+- Inspector is enabled per Region and supports multi-account management through AWS Organizations.
+- Inspector can be integrated with AWS Systems Manager for agent deployment and management, and with Amazon EventBridge and AWS Lambda to automate responses to findings.
 
 ## Amazon Macie
 
