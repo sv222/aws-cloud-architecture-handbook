@@ -814,32 +814,28 @@ Amazon Kinesis is a powerful and flexible tool that can be used to build and run
 
 ## Amazon GuardDuty
 
-Amazon GuardDuty is a threat detection service that uses machine learning to analyze and identify malicious activity in your AWS accounts and workloads. GuardDuty monitors a variety of data sources, including AWS CloudTrail logs, Amazon S3 events, and Amazon VPC flow logs, for signs of suspicious activity. When GuardDuty detects a potential threat, it generates a finding that you can review and investigate.
+Amazon GuardDuty is a threat detection service that uses machine learning to analyze activity in your AWS accounts and workloads. When it detects a potential threat, it generates a finding that you can review and investigate.
 
-GuardDuty can help you identify a variety of threats, including:
+GuardDuty can help you identify threats such as:
 
-- **Unauthorized access:** GuardDuty can detect unauthorized access to your AWS resources, such as unauthorized logins, unauthorized API calls, and unauthorized data access.
-- **Malware:** GuardDuty can detect malware infections on your AWS instances and containers.
-- **Data exfiltration:** GuardDuty can detect unauthorized data exfiltration from your AWS accounts.
-- **Cryptojacking:** GuardDuty can detect unauthorized cryptocurrency mining on your AWS instances and containers.
-
-GuardDuty is a valuable tool for improving the security of your AWS accounts and workloads. It is easy to use and it provides a variety of features to help you identify, investigate, and respond to threats.
+- **Unauthorized access:** unauthorized logins, API calls, and data access.
+- **Malware:** malware on EC2 instances and in S3 objects.
+- **Data exfiltration:** suspicious S3 access, such as exfiltration or destruction attempts (S3 Protection).
+- **Cryptojacking:** unauthorized cryptocurrency mining on your AWS instances and containers.
 
 **Key points about Amazon GuardDuty for architecture and operations:**
 
-- GuardDuty is a threat detection service that uses machine learning to analyze and identify malicious activity in your AWS accounts and workloads.
-- GuardDuty monitors a variety of data sources for signs of suspicious activity, including AWS CloudTrail logs, Amazon S3 data events, Amazon VPC flow logs, DNS logs, Kubernetes audit logs (EKS Protection), and Amazon RDS login activity (RDS Protection).
-- GuardDuty can help you identify a variety of threats, including unauthorized access, malware, data exfiltration, cryptojacking, and unusual API calls.
-- GuardDuty supports multiple AWS accounts through AWS Organizations.
-
-**Here are some additional details about Amazon GuardDuty that you may want to know:**
-
-- GuardDuty is a managed service, so you do not need to manage any infrastructure.
-- GuardDuty can be integrated with a variety of other AWS services, such as Amazon EventBridge (formerly CloudWatch Events) and Amazon Simple Notification Service (SNS), to automate your response to threats.
-- GuardDuty is a regional service, but findings can be aggregated to a central account using AWS Security Hub.
-- GuardDuty Malware Protection scans EC2 instances and container workloads for malware.
-
-GuardDuty is a powerful tool for improving the security of your AWS accounts and workloads. It is easy to use and it provides a variety of features to help you identify, investigate, and respond to threats.
+- Foundational data sources are CloudTrail management events, VPC flow logs, and DNS logs. They need no extra setup after GuardDuty is enabled.
+- Protection plans are optional and turned on separately:
+  - S3 Protection analyzes CloudTrail S3 data events, so you do not need to enable S3 data event logging.
+  - EKS Protection analyzes Kubernetes audit logs.
+  - RDS Protection analyzes login activity on supported Aurora and RDS databases.
+  - Lambda Protection analyzes network activity from Lambda functions.
+  - Runtime Monitoring watches operating-system-level activity on EKS, ECS, and EC2. It is not enabled by default.
+  - Malware Protection scans EBS volumes attached to EC2 instances and newly uploaded S3 objects.
+- Use a delegated administrator account in AWS Organizations to enable GuardDuty and protection plans for member accounts. Auto-enable settings are per Region, while GuardDuty policies in Organizations can set plans across Regions.
+- GuardDuty is a regional service. Findings can be aggregated to a central account using AWS Security Hub.
+- Findings can be sent to Amazon EventBridge (formerly CloudWatch Events), which can trigger automated responses through targets such as Amazon SNS.
 
 ## Amazon Inspector
 
