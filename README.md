@@ -852,36 +852,25 @@ Amazon Inspector is an automated security assessment service that helps you iden
 
 ## Amazon Macie
 
-Amazon Macie is a data security service that uses machine learning to automatically discover, classify, and protect sensitive data in Amazon S3. Macie can help you to identify and protect a wide range of sensitive data types, including personally identifiable information (PII), financial data, intellectual property, and healthcare data.
+Amazon Macie is a data security service that uses machine learning to automatically discover, classify, and protect sensitive data in Amazon S3, such as personally identifiable information (PII), financial data, and credentials.
 
-Macie uses a variety of techniques to discover and classify sensitive data, including:
+Macie detects sensitive data with managed and custom data identifiers:
 
-- **Machine learning:** Macie uses machine learning to identify patterns in your data that are indicative of sensitive data.
-- **Natural language processing:** Macie uses natural language processing to identify sensitive data in text fields, such as email messages and document files.
-- **Regular expressions:** Macie uses regular expressions to identify sensitive data in specific formats, such as credit card numbers and social security numbers.
+- **Managed data identifiers:** built-in criteria for common data types, such as credit card numbers and AWS secret access keys.
+- **Custom data identifiers:** a regular expression, optionally with keywords and a proximity rule, for formats specific to your organization. They cannot be changed after creation.
 
-Once Macie has identified and classified sensitive data, it provides you with a variety of features to help you to protect it, including:
+Once Macie has identified and classified sensitive data, it provides features to help you protect it:
 
-- **Alerts:** Macie can generate alerts when it detects sensitive data that is being accessed or shared in a way that violates your security policies.
+- **Findings:** policy findings report security and privacy issues with general purpose S3 buckets, and sensitive data findings report sensitive data detected in S3 objects.
 - **Encryption reports:** Macie reports on how your S3 objects are encrypted (SSE-S3, SSE-KMS) and flags buckets with weak or missing encryption protections.
-- **Auditing:** Macie can provide you with audit reports on how your sensitive data is being accessed and shared.
-
-Macie is a valuable tool for any organization that is using Amazon S3 to store sensitive data. It can help you to identify and protect your sensitive data from unauthorized access, theft, and loss.
 
 **Key points about Amazon Macie for architecture and operations:**
 
-- Macie is a data security service that uses machine learning to automatically discover, classify, and protect sensitive data in Amazon S3.
-- Macie can help you to identify and protect a wide range of sensitive data types, including personally identifiable information (PII), financial data, intellectual property, and healthcare data, across your S3 buckets.
-- Macie provides a variety of features to help you to protect your sensitive data, including automated sensitive data discovery, alerts, and detailed findings.
-- Macie provides a data sensitivity score for your S3 buckets.
-
-**Here are some additional details about Amazon Macie that you may want to know:**
-
+- Automated sensitive data discovery samples objects in your S3 buckets and assigns each bucket a sensitivity score that starts at 50 and moves within a range of 1 to 99. Scores from 51 to 99 are labeled Sensitive.
+- Macie is a regional service. Enable it, and automated sensitive data discovery, in each Region.
+- The delegated administrator can enable automated sensitive data discovery for all or new member accounts through AWS Organizations.
 - Macie can be integrated with a variety of other AWS services, such as Amazon EventBridge and Amazon Simple Notification Service (SNS), to automate your response to sensitive data findings.
-- Macie is available in all AWS Regions and supports multi-account management through AWS Organizations.
 - Macie provides a dashboard for a centralized view of your S3 data security posture.
-
-Macie is a powerful tool for improving the security of your sensitive data in Amazon S3. It is easy to use and it provides a variety of features to help you identify, protect, and audit your sensitive data.
 
 ## AWS IAM Access Analyzer
 
