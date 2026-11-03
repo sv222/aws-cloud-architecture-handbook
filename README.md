@@ -913,42 +913,22 @@ AWS CodePipeline is a continuous delivery service that models your release proce
 
 ## AWS CodeBuild
 
-AWS CodeBuild is a fully managed continuous integration service that automates the build, test, and packaging of your software. It scales with your needs and helps you to release high-quality software more quickly and reliably.
-
-CodeBuild works by building your code in a Docker container environment, executing the build commands that you specify in your buildspec file. The buildspec file is a YAML file that defines the steps that CodeBuild should take to build and test your code.
-
-CodeBuild can be integrated with a variety of AWS services, such as Amazon S3, Amazon Elastic Container Registry (ECR), and AWS CodePipeline. This allows you to automate the build, test, and deployment process for your applications.
+AWS CodeBuild is a fully managed continuous integration service that runs your build, test, and packaging steps. Each build runs in a managed container and executes the commands in your buildspec file, a YAML file that defines the build phases.
 
 **Key points about AWS CodeBuild for architecture and operations:**
 
-- AWS CodeBuild is a fully managed continuous integration service that automates the build, test, and packaging of your software.
-- CodeBuild scales with your needs and helps you to release high-quality software more quickly and reliably.
-- CodeBuild works by building your code in a Docker container environment and executing the build commands specified in your buildspec file.
-- CodeBuild can be integrated with a variety of AWS services, such as Amazon S3, Amazon ECR, and AWS CodePipeline.
+- By default, CodeBuild reads a file named `buildspec.yml` from the root of the source. A project can point to a different file path.
+- Compute options are on-demand EC2, on-demand Lambda, and reserved capacity fleets that keep dedicated build instances ready. EC2 offers more flexibility during the build, while Lambda starts builds faster.
+- Caching uses either an Amazon S3 cache, which any build host can reach, or a local cache on the build host. Local cache modes are the source cache (Git-based sources only), the Docker layer cache (Linux, privileged mode), and the custom cache (directories listed in the buildspec). Local caches cannot guarantee a cache hit.
+- Builds can run inside a VPC to reach private resources, such as RDS databases.
 
 **Here are some additional details about AWS CodeBuild that you may want to know:**
 
-- CodeBuild supports a variety of build environments, including Docker images for popular programming languages (e.g., Java, Python, Node.js, .NET, Go, Ruby) and custom Docker images.
-- CodeBuild provides a variety of features to help you monitor and manage your builds, such as real-time status updates, detailed build logs (CloudWatch Logs), and build notifications (SNS).
-- CodeBuild can be used to build and test code for applications of all sizes, from small websites to large enterprise applications.
-- CodeBuild supports caching build artifacts in S3 to speed up subsequent builds.
-- CodeBuild supports build environment customization with Docker images, including the use of managed and custom images.
-
-**Here are some of the benefits of using AWS CodeBuild:**
-
-- **Increased build frequency:** CodeBuild can help you to release new features more frequently by automating the build and test process.
-- **Improved reliability:** CodeBuild can help you to improve the reliability of your releases by providing a consistent build environment and automating the test process.
-- **Reduced risk:** CodeBuild can help you to reduce the risk of releasing buggy code by automating the test process and providing detailed build reports.
-- **Improved visibility:** CodeBuild provides a variety of features to help you monitor and manage your builds, which can help you to identify and resolve problems quickly.
-
-Overall, AWS CodeBuild is a valuable tool for any organization that is developing and deploying software. It can help you to increase your build frequency, improve the reliability of your builds, reduce the risk of releasing buggy code, and improve the visibility of your build process.
-
-**In addition to the above, here are some other things to keep in mind about AWS CodeBuild:**
-
-- CodeBuild can be integrated with a variety of CI/CD tools, such as AWS CodePipeline, Jenkins, and CircleCI.
-- CodeBuild supports running builds in a VPC for private network access.
-
-AWS CodeBuild is a powerful and flexible tool for automating the build and test process for your applications. It is easy to use and it provides a variety of features to help you improve the frequency, reliability, and risk of your builds.
+- Managed build images include runtimes for Java, Python, Node.js, .NET, Go, and Ruby. You can also use custom Docker images.
+- CodeBuild can run GitHub Actions and GitLab CI/CD jobs on its build hosts as self-hosted runners, triggered by webhooks. BuildSpec files are ignored for runner jobs.
+- Build logs go to Amazon CloudWatch Logs, and build notifications are sent through SNS.
+- CodeBuild can be used as the build action in AWS CodePipeline.
+- CodeBuild can be integrated with a variety of CI/CD tools, such as AWS CodePipeline and Jenkins.
 
 ## AWS CodeDeploy
 
