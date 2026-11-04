@@ -232,25 +232,23 @@ Key points about AWS Transfer Family for architecture and operations:
 
 ## AWS Direct Connect
 
-AWS Direct Connect is a dedicated network connection between your on-premises network and one of the AWS Direct Connect locations. It provides a secure, reliable, and high-performance connection to AWS. AWS Direct Connect can be used to connect to any AWS service, including Amazon EC2, Amazon S3, and Amazon RDS.
+AWS Direct Connect is a dedicated network connection between your on-premises network and one of the AWS Direct Connect locations. It provides a private, high-bandwidth connection to AWS that bypasses the public internet. Private virtual interfaces reach resources in your VPCs, and public virtual interfaces reach public AWS service endpoints such as Amazon S3.
 
 Key points about AWS Direct Connect for architecture and operations:
 
-- AWS Direct Connect is a dedicated network connection between your on-premises network and AWS.
-- AWS Direct Connect provides a secure, reliable, and high-performance connection to AWS.
-- AWS Direct Connect can be used to connect to any AWS service.
+- Traffic over Direct Connect is not encrypted by default. Use MACsec on dedicated 10, 100, or 400 Gbps connections at select locations, or run a Site-to-Site VPN over a public or transit virtual interface.
 - AWS Direct Connect offers two main types of connections:
-  - Dedicated Connections: A dedicated physical connection between your on-premises network and AWS, offering a range of bandwidth options.
-  - Hosted Connections: A connection provisioned by an AWS Direct Connect partner, with pre-defined bandwidth options.
+  - Dedicated Connections: A dedicated physical connection with 1, 10, 100, or 400 Gbps ports.
+  - Hosted Connections: A connection provisioned by an AWS Direct Connect partner, with bandwidth from 50 Mbps to 25 Gbps.
+- Resiliency Toolkit models:
+  - Maximum resiliency: Separate connections on separate devices in more than one location, with a 99.99% SLA when its conditions are met.
+  - High resiliency: Two connections to multiple locations, with a 99.9% SLA.
+  - Development and test: For non-critical workloads, in one location, with no SLA.
 
 Here are some additional details about AWS Direct Connect that you may want to know:
 
-- AWS Direct Connect is a global service with over 140 Direct Connect locations around the world.
-- AWS Direct Connect offers a variety of bandwidth options, from 50 Mbps (hosted connections) up to 400 Gbps (dedicated connections).
-- AWS Direct Connect can be used to create a variety of network configurations, including site-to-site VPNs, point-to-point connections, hub-and-spoke networks, and integration with AWS Transit Gateway for simplified network management.
-- AWS Direct Connect can be integrated with a variety of other AWS services, such as AWS Virtual Private Cloud (VPC) and AWS Transit Gateway.
-
-AWS Direct Connect is a powerful tool for connecting your on-premises network to AWS securely, reliably, and with high performance. It is easy to use and it provides a variety of features to help you meet your networking needs.
+- AWS Direct Connect is a global service with over 150 Direct Connect locations around the world.
+- Transit virtual interfaces connect to a transit gateway. A Direct Connect gateway lets a private virtual interface reach VPCs in multiple AWS Regions.
 
 ## Amazon Simple Storage Service (S3)
 
