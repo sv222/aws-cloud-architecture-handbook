@@ -710,22 +710,14 @@ Amazon EventBridge is a serverless event bus that makes it easy to connect appli
 
 Key points about Amazon EventBridge for architecture and operations:
 
-- EventBridge is a serverless event bus that makes it easy to connect applications together using events.
-- It allows you to decouple and scale microservices, serverless applications, and legacy applications.
-- EventBridge can detect events from a variety of sources, including AWS services, your custom applications, and SaaS applications (via EventBridge SaaS integrations).
-- It can then route those events to targets such as AWS Lambda functions, Step Functions state machines, Amazon Kinesis streams, Amazon SNS topics, and other AWS services.
+- Rules match events with JSON event patterns. A pattern matches only when the event contains every field the pattern lists, at the same nesting level. String matching is exact.
 - EventBridge is a highly scalable and reliable service that can handle millions of events per second with low latency.
 - It is also a cost-effective service, as you only pay for the events that you process and deliver.
-- EventBridge Schema Registry allows you to discover, manage, and share schemas for events.
-
-Here are some additional details about Amazon EventBridge that you may want to know:
-
-- EventBridge can be used to build a variety of serverless applications, such as real-time data processing pipelines, event-driven architectures, and notification systems.
-- It can also be used to integrate AWS services with each other, with your custom applications, and with third-party SaaS applications.
-- EventBridge is a powerful tool that can be used to simplify and automate your application architectures, promoting loose coupling and scalability.
+- Rule targets retry failed deliveries for up to 24 hours and 185 attempts by default. Events that exhaust their retries are dropped unless you configure a dead-letter queue.
+- EventBridge Archive keeps events indefinitely by default, or for a number of days you set. Replaying an archive sends the events back to the source event bus and does not remove them from the archive.
 - EventBridge Pipes allow you to build point-to-point integrations between event sources and targets with optional filtering and enrichment.
-- EventBridge supports API Destinations for invoking HTTP APIs.
-- EventBridge supports EventBridge Archive for long-term event storage.
+- EventBridge supports API Destinations for invoking HTTP APIs. Endpoints must use HTTPS, and calls that exceed the 5-second timeout are retried.
+- EventBridge Schema Registry allows you to discover, manage, and share schemas for events.
 
 Here is an example of how Amazon EventBridge can be used to build a serverless application:
 
@@ -734,8 +726,6 @@ Here is an example of how Amazon EventBridge can be used to build a serverless a
 - The Lambda function can then process the order and send a confirmation email to the customer.
 - You can also use EventBridge to create a rule that routes the event to an Amazon SNS topic.
 - This topic can then be used to notify other systems about the new order, such as your inventory system or your CRM system.
-
-This is just one example of how Amazon EventBridge can be used to build serverless applications. EventBridge is a flexible and powerful tool that can be used to solve a wide variety of problems.
 
 ## AWS Step Functions
 
