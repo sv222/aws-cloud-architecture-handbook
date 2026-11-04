@@ -1,18 +1,14 @@
-# AWS Certified Solutions Architect Associate (SAA-C03) reference guide [2026]
+# AWS Cloud Architecture Handbook: Design Patterns and Well-Architected Guidance for Engineers
 
-![AWS Certified Solutions Architect Associate (SAA-C03) reference guide](/extras/AWS_Certified_Solutions_Architect_Associate_SAA_C03_Cheatsheet_logo.png)
+![AWS cloud architecture handbook](/extras/AWS_Certified_Solutions_Architect_Associate_SAA_C03_Cheatsheet_logo.png)
 
-This repository contains a reference guide with key information to help you prepare for the AWS Certified Solutions Architect Associate (SAA-C03) exam, **updated for 2026**.
+A practical AWS cloud architecture handbook for engineers who design, build, and run systems on AWS. It summarizes core services, design patterns, limits, and AWS Well-Architected Framework guidance, updated for 2026. The content also lines up with the AWS Certified Solutions Architect – Associate (SAA-C03) domains.
 
 ![AWS Services MAP](/extras/aws_services_map.jpg)
 
-This reference guide summarizes important services, concepts, and best practices tested in the exam. It can be used as a quick reference guide for studying.
-
-The information is organized into the following sections:
-
 ## Table of Contents
 
-- [AWS Certified Solutions Architect Associate (SAA-C03) reference guide](#aws-certified-solutions-architect-associate-saa-c03-reference-guide-2026)
+- [AWS Cloud Architecture Handbook: Design Patterns and Well-Architected Guidance for Engineers](#aws-cloud-architecture-handbook-design-patterns-and-well-architected-guidance-for-engineers)
   - [Table of Contents](#table-of-contents)
   - [Amazon Elastic Compute Cloud (EC2)](#amazon-elastic-compute-cloud-ec2)
   - [Amazon Elastic Container Service (ECS)](#amazon-elastic-container-service-ecs)
@@ -63,7 +59,7 @@ The information is organized into the following sections:
 
 ## Amazon Elastic Compute Cloud (EC2)
 
-Amazon EC2 provides secure, resizable compute capacity in the cloud. Key exam concepts:
+Amazon EC2 provides secure, resizable compute capacity in the cloud. Key concepts:
 
 - **Instance Types**:
   - General Purpose (M7g, T4g, M7i, T3, M7a, M7gd)
@@ -107,7 +103,7 @@ Amazon ECS is a highly scalable, high-performance container orchestration servic
 - **Health monitoring:** ECS monitors the health of your containers and automatically restarts any unhealthy containers.
 - **Auto scaling:** ECS can automatically scale your containers up or down based on demand, so you can ensure that your application has the resources it needs.
 
-Here is some short information about Amazon ECS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon ECS for architecture and operations:
 
 - ECS is a highly scalable, high-performance container orchestration service.  
 - ECS supports Docker containers and OCI compliant images.
@@ -130,7 +126,7 @@ ECS is a powerful tool for managing containerized applications. It is easy to us
 
 Amazon ECR is a fully managed container registry that makes it easy to store, manage, and deploy Docker container images and Open Container Initiative (OCI) compatible artifacts. ECR is integrated with Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS), so you can easily deploy your containerized applications to production.
 
-Here is some short information about Amazon ECR that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon ECR for architecture and operations:
 
 - ECR is a fully managed container registry.
 - ECR is integrated with ECS and EKS.  
@@ -160,7 +156,7 @@ Amazon EKS is a fully managed Kubernetes service that makes it easy to deploy, m
 - **Load balancing:** EKS provides load balancing for your Kubernetes applications, so you can ensure that your applications are highly available.
 - **Monitoring:** EKS provides monitoring for your Kubernetes applications, so you can track the health and performance of your applications.
 
-Here is some short information about Amazon EKS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon EKS for architecture and operations:
 
 - EKS is a fully managed Kubernetes service.
 - EKS provides a Kubernetes API server, a Kubernetes control plane, and Kubernetes worker nodes. As of November 2026, Amazon EKS supports Kubernetes version 1.37.
@@ -181,7 +177,7 @@ EKS is a powerful tool for managing Kubernetes applications. It is easy to use a
 
 AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. Lambda executes your code only when needed and scales automatically, so you can focus on your code and not on managing infrastructure. Lambda supports a variety of programming languages and runtimes (e.g., Node.js 22 and 24, Python 3.13 and 3.14, Java 21 and 25, .NET 8 and 10, Ruby 3.4, and OS-only runtimes like provided.al2023, commonly used for Go).
 
-Here is some short information about AWS Lambda that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Lambda for architecture and operations:
 
 - Lambda is a serverless compute service.
 - Lambda executes your code only when needed and scales automatically.  
@@ -202,7 +198,7 @@ Lambda is a powerful tool for building serverless applications. It is easy to us
 
 Amazon Virtual Private Cloud (VPC) enables you to launch AWS resources into a logically isolated virtual network that you define. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS.
 
-Here is some short information about Amazon VPC that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon VPC for architecture and operations:
 
 - VPC is a logically isolated virtual network that you define.
 - VPC provides you with complete control over your virtual networking environment, including the selection of your own IP address range, creation of subnets, and configuration of route tables, network gateways (Internet Gateway, Virtual Private Gateway), and VPC Endpoints.
@@ -223,7 +219,7 @@ VPC is a powerful tool for building and managing secure and isolated networks in
 
 Amazon Route 53 is a highly scalable and available cloud Domain Name System (DNS) web service. It provides a reliable and secure way to route end users to internet applications by translating domain names, such as example.com, to the numeric IP addresses of the underlying infrastructure where the applications are hosted.
 
-Here is some short information about Amazon Route 53 that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon Route 53 for architecture and operations:
 
 - Route 53 is a highly scalable and available cloud DNS web service.
 - Route 53 provides a reliable and secure way to route end users to internet applications.
@@ -248,7 +244,7 @@ Route 53 is a powerful tool for managing DNS records and routing traffic to inte
 
 Elastic Load Balancing (ELB) is a load balancing service that automatically distributes incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. It monitors the health of its registered targets and ensures that traffic is routed only to the healthy targets. ELB scales your load balancer capacity automatically in response to changes in incoming traffic.
 
-Here is some short information about Amazon ELB that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon ELB for architecture and operations:
 
 - ELB is a load balancing service that distributes incoming traffic across multiple targets.
 - ELB monitors the health of its registered targets and routes traffic only to the healthy targets.
@@ -275,7 +271,7 @@ Elastic Load Balancing is a powerful tool for distributing incoming traffic acro
 
 AWS Transfer Family is a managed service that makes it easy to transfer files over SFTP, FTPS, FTP, and AS2. It provides a secure and reliable way to transfer files between your on-premises systems and AWS storage services, such as Amazon S3 and Amazon Elastic File System (EFS).
 
-Here is some short information about AWS Transfer Family that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Transfer Family for architecture and operations:
 
 - AWS Transfer Family is a managed service that makes it easy to transfer files over SFTP, FTPS, and FTP.
 - AWS Transfer Family provides a secure and reliable way to transfer files between your on-premises systems and AWS storage services.
@@ -299,7 +295,7 @@ AWS Transfer Family is a powerful tool for transferring files over SFTP securely
 
 AWS Direct Connect is a dedicated network connection between your on-premises network and one of the AWS Direct Connect locations. It provides a secure, reliable, and high-performance connection to AWS. AWS Direct Connect can be used to connect to any AWS service, including Amazon EC2, Amazon S3, and Amazon RDS.
 
-Here is some short information about AWS Direct Connect that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Direct Connect for architecture and operations:
 
 - AWS Direct Connect is a dedicated network connection between your on-premises network and AWS.
 - AWS Direct Connect provides a secure, reliable, and high-performance connection to AWS.
@@ -321,7 +317,7 @@ AWS Direct Connect is a powerful tool for connecting your on-premises network to
 
 Amazon S3 is a highly scalable, durable, and available object storage service that is designed for storing and retrieving any amount of data, from anywhere on the web. S3 provides a secure, durable, and low-cost storage infrastructure to host your static websites, store data used by web services, mobile applications, backup and restore, archiving and disaster recovery, analytics, big data applications, and machine learning workloads.
 
-Here is some short information about Amazon S3 that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon S3 for architecture and operations:
 
 - S3 is a highly scalable, durable, and available object storage service.  
 - S3 can be used to store any type of data, including web pages, images, videos, and databases.
@@ -365,7 +361,7 @@ EBS volumes can be attached to EC2 instances at any time, and they can be scaled
 
 EBS is an important part of the AWS Well-Architected Framework. The Well-Architected Framework is a set of best practices for designing and building cloud architectures. The Well-Architected Framework recommends using EBS for persistent storage for all applications running on EC2 instances.
 
-Here is some additional information about EBS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about EBS for architecture and operations:
 
 - EBS volumes are attached to EC2 instances using block device mappings.
 - EBS volumes can be encrypted at rest using AWS Key Management Service (KMS).  
@@ -381,7 +377,7 @@ Amazon Elastic File System (EFS) is a cloud-based, elastic file system that prov
 
 EFS file systems are highly available and durable, and they can scale to petabytes of data. EFS also provides strong consistency and file locking, making it a good choice for a wide range of workloads, including web applications, content management systems, and databases.
 
-Here is some short information about EFS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about EFS for architecture and operations:
 
 - EFS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your storage.
 - EFS file systems are highly available and durable, and they can scale to petabytes of data.  
@@ -402,7 +398,7 @@ Here are some additional details about EFS that you may want to know:
 
 Amazon Relational Database Service (RDS) is a managed database service that provides a relational database infrastructure for deploying, scaling, and managing relational databases in the cloud. RDS supports a variety of database engines, including MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, and Amazon Aurora.
 
-Here is some short information about RDS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about RDS for architecture and operations:
 
 - RDS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
 - RDS supports a variety of database engines, including MySQL, PostgreSQL, MariaDB, Oracle Database, Microsoft SQL Server, IBM Db2, and Amazon Aurora.
@@ -422,7 +418,7 @@ Here are some additional details about RDS that you may want to know:
 
 Amazon Aurora is a relational database service that combines the performance and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. Aurora is MySQL and PostgreSQL compatible, so developers can use existing code, skills, and tools to build new applications, or migrate existing applications to the cloud.
 
-Here is some short information about Aurora that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Aurora for architecture and operations:
 
 - Aurora is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
 - Aurora is compatible with MySQL and PostgreSQL, so developers can use existing code, skills, and tools to build new applications, or migrate existing applications to the cloud.
@@ -442,7 +438,7 @@ Here are some additional details about Aurora that you may want to know:
 
 Amazon DynamoDB is a fully managed, multi-region, multi-master, durable NoSQL database with built-in security, backup and restore, and in-memory caching for internet-scale applications. DynamoDB provides single-digit millisecond performance at any scale. It's a flexible and scalable database that can be used for a wide range of workloads, including mobile, web, gaming, ad tech, IoT, and more.
 
-Here is some short information about DynamoDB that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about DynamoDB for architecture and operations:
 
 - DynamoDB is a NoSQL database, which means that it does not use a traditional relational database schema.  
 - DynamoDB is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
@@ -473,7 +469,7 @@ Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the
 - **SQL compatibility:** Redshift is compatible with standard SQL, so you can use existing BI tools to analyze your data.
 - **Redshift Serverless:** Run and scale data warehouse workloads without managing infrastructure.
 
-Here is some short information about Redshift that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Redshift for architecture and operations:
 
 - Redshift is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your data warehouse.  
 - Redshift is up to 100 times faster than traditional data warehouses.
@@ -493,7 +489,7 @@ Here are some additional details about Redshift that you may want to know:
 
 Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. SQS offers a simple, reliable, and scalable way to decouple and scale distributed systems and microservices. It is a highly available, durable, and scalable hosted queue for storing messages as they travel between applications or microservices. SQS moves data between distributed application components and helps you decouple these components.
 
-Here is some short information about SQS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about SQS for architecture and operations:
 
 - SQS is a message queuing service, which means that it stores messages as they travel between applications or microservices.
 - SQS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your queue.
@@ -513,7 +509,7 @@ Here are some additional details about SQS that you may want to know:
 
 Amazon Simple Notification Service (SNS) is a fully managed pub/sub messaging service that enables you to decouple microservices, distributed systems, and serverless applications. SNS provides a simple, reliable, and scalable way to notify multiple subscribers about the availability of new data, such as messages in a queue or events in a database.
 
-Here is some short information about Amazon SNS that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon SNS for architecture and operations:
 
 - SNS is a pub/sub messaging service, which means that publishers send messages to topics, and subscribers receive messages from topics.
 - SNS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your messaging infrastructure.
@@ -541,7 +537,7 @@ Amazon API Gateway is a fully managed service that makes it easy to create, publ
 - **Usage Plans:** Control access to your APIs and throttle requests.
 - **AWS WAF Integration:** Protect your APIs from common web exploits.
 
-Here is some short information about API Gateway that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about API Gateway for architecture and operations:
 
 - API Gateway is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your API infrastructure.
 - API Gateway supports REST APIs, WebSocket APIs, and HTTP APIs (optimized for serverless workloads).
@@ -572,7 +568,7 @@ Cognito can also be used to authorize users to access your resources. For exampl
 
 Cognito is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your IAM infrastructure. Cognito is also highly available and durable, so you can be confident that your users will be able to access your application when they need it.
 
-Here is some short information about Amazon Cognito that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon Cognito for architecture and operations:
 
 - Cognito is a fully managed user identity and access management (IAM) service.
 - Cognito can be used to authenticate users with a variety of methods, including username and password, social login, MFA, and custom authentication schemes.
@@ -592,7 +588,7 @@ Here are some additional details about Amazon Cognito that you may want to know:
 
 Amazon CloudWatch is a monitoring and observability service that provides data and insights in logs, metrics, and events. It collects metrics and logs from all your AWS services, and you can monitor them, visualize the data, and act automatically to changes in these services.
 
-Here is some short information about CloudWatch that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about CloudWatch for architecture and operations:
 
 - CloudWatch collects and monitors metrics, logs, and events from all AWS services and resources.
 - CloudWatch metrics are numerical values that measure the performance of your AWS resources.
@@ -617,7 +613,7 @@ Here are some additional details about CloudWatch that you may want to know:
 
 AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk mitigation by capturing, logging, storing, and delivering event log files that record API calls made to your AWS account and your resources. With CloudTrail, you can track user activity and API usage across your AWS services and resources.
 
-Here is some short information you will need to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS CloudTrail for architecture and operations:
 
 - CloudTrail is a fully managed service that continuously logs all API calls made to your AWS account and your resources.
 - CloudTrail logs can be delivered to Amazon S3 and Amazon CloudWatch Logs.
@@ -642,7 +638,7 @@ Example use cases of CloudTrail:
 
 AWS Identity and Access Management (IAM) is a web service that enables you to securely control access to AWS services and resources. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
 
-Here is some short information you will need to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Identity and Access Management (IAM) for architecture and operations:
 
 - IAM is a fully managed service that enables you to securely control access to AWS services and resources.  
 - IAM uses users, groups, and roles to manage access to AWS resources.
@@ -677,7 +673,7 @@ AWS Key Management Service (KMS) is a managed service that makes it easy for you
 - **Key rotation:** KMS can rotate your keys on a regular basis to help protect them from compromise.
 - **Key auditing:** KMS provides detailed auditing of all key operations.
 
-Here is some short information you will need to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Key Management Service (KMS) for architecture and operations:
 
 - KMS is a managed service that makes it easy to create and control the cryptographic keys that are used to protect your data.
 - KMS provides a range of features that make it easy to manage your keys securely, including key generation, key storage, key rotation, and key auditing.
@@ -703,7 +699,7 @@ Example use cases of KMS:
 
 In December 2025 AWS released a new, unified AWS Security Hub that correlates signals from GuardDuty, Inspector, and posture checks; the original service described below is now called AWS Security Hub CSPM and remains available.
 
-AWS Security Hub CSPM provides centralized security governance across AWS accounts with these key exam-relevant features:
+AWS Security Hub CSPM provides centralized security governance across AWS accounts with these key features:
 
 - **Compliance Standards**:
   - AWS Foundational Security Best Practices (FSBP)
@@ -717,7 +713,7 @@ AWS Security Hub CSPM provides centralized security governance across AWS accoun
 - **Custom Insights**: Create custom queries to identify specific security issues.
 - **Automated Remediation**: Integrate with AWS Systems Manager Automation and AWS Lambda for automated responses.
 
-Here is some short information you will need to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Security Hub for architecture and operations:
 
 - Security Hub is a cloud security posture management service that provides a comprehensive view of your security state across AWS accounts, services, and supported third-party products.
 - Security Hub collects findings from a variety of sources, including Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS IAM Access Analyzer, and prioritizes them based on severity and risk.
@@ -742,7 +738,7 @@ Example use cases of Security Hub:
 
 AWS CloudFormation is a service that helps you model and set up your AWS infrastructure resources. CloudFormation allows you to use templates to define a collection of AWS resources and the dependencies between them. You can then deploy, update, or delete your infrastructure using a single CloudFormation template.
 
-Here is some short information you will need to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS CloudFormation for architecture and operations:
 
 - CloudFormation is a service that helps you model and set up your AWS infrastructure resources.
 - CloudFormation uses templates to define a collection of AWS resources and the dependencies between them.
@@ -777,7 +773,7 @@ AWS Systems Manager is a service that helps you manage and automate your AWS res
 - Collect and analyze data from your infrastructure
 - Respond to events and alerts
 
-Here is some short information you will need to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Systems Manager for architecture and operations:
 
 - Systems Manager is a fully managed service that helps you manage and automate your AWS resources.
 - Systems Manager provides a set of tools and capabilities that can be used to deploy, manage, and configure applications; automate operational tasks; collect and analyze data from your infrastructure; and respond to events and alerts.
@@ -881,7 +877,7 @@ AWS cost optimization strategies help you reduce your AWS costs without sacrific
 
 Amazon EventBridge is a serverless event bus that makes it easy to connect applications together using events. It allows you to decouple and scale microservices, serverless applications, and legacy applications. EventBridge can detect events from a variety of sources, including AWS services, applications, and connected devices. It can then route those events to targets such as AWS Lambda functions, Step Functions state machines, Kinesis streams, and Amazon SNS topics.
 
-Here is some short information about Amazon EventBridge that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon EventBridge for architecture and operations:
 
 - EventBridge is a serverless event bus that makes it easy to connect applications together using events.
 - It allows you to decouple and scale microservices, serverless applications, and legacy applications.
@@ -914,7 +910,7 @@ This is just one example of how Amazon EventBridge can be used to build serverle
 
 AWS Step Functions is a serverless workflow service that makes it easy to coordinate the execution of distributed applications and microservices. It allows you to define workflows as a series of steps, and then Step Functions will take care of executing those steps in the correct order, handling retries and errors automatically.
 
-Here is some short information about AWS Step Functions that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about AWS Step Functions for architecture and operations:
 
 - AWS Step Functions is a serverless workflow service that makes it easy to coordinate the execution of distributed applications and microservices.
 - It allows you to define workflows as a series of steps, and then Step Functions will take care of executing those steps in the correct order, handling retries and errors automatically.
@@ -967,7 +963,7 @@ Kinesis consists of three core components:
 - **Kinesis Data Firehose:** This service delivers streaming data to data lakes and analytics applications. Kinesis Data Firehose can transform and buffer data before delivering it to its destination, making it easy to integrate with a variety of data processing systems.
 - **Managed Service for Apache Flink (formerly Kinesis Data Analytics):** This service makes it easy to process streaming data in real time using Apache Flink, with built-in libraries and connectors for real-time data processing.
 
-Here is some short information about Amazon Kinesis that you will need to know to pass the AWS Certified Solutions Architect Associate exam:
+Key points about Amazon Kinesis for architecture and operations:
 
 - **Kinesis Data Streams:** A highly scalable and durable real-time data streaming service that can continuously capture and store gigabytes of data per second from hundreds of thousands of sources.
 - **Kinesis Data Firehose:** A fully managed service for delivering real-time streaming data to destinations like Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and Splunk. It can transform, buffer, and compress data before delivery.
@@ -998,7 +994,7 @@ GuardDuty can help you identify a variety of threats, including:
 
 GuardDuty is a valuable tool for improving the security of your AWS accounts and workloads. It is easy to use and it provides a variety of features to help you identify, investigate, and respond to threats.
 
-**Here is some short information about Amazon GuardDuty that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about Amazon GuardDuty for architecture and operations:**
 
 - GuardDuty is a threat detection service that uses machine learning to analyze and identify malicious activity in your AWS accounts and workloads.
 - GuardDuty monitors a variety of data sources for signs of suspicious activity, including AWS CloudTrail logs, Amazon S3 data events, Amazon VPC flow logs, DNS logs, Kubernetes audit logs (EKS Protection), and Amazon RDS login activity (RDS Protection).
@@ -1022,7 +1018,7 @@ Inspector uses a variety of assessment techniques, including static code analysi
 
 Inspector is a valuable tool for improving the security of your AWS workloads. It is easy to use and it can help you identify and remediate security vulnerabilities that you may not be aware of.
 
-**Here is some short information about Amazon Inspector that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about Amazon Inspector for architecture and operations:**
 
 - Inspector is an automated security assessment service that helps you identify and remediate potential security vulnerabilities in your Amazon EC2 instances, Amazon ECR container images, and AWS Lambda functions.
 - Inspector uses a variety of assessment techniques to identify security vulnerabilities, including automated agent-based scanning for EC2 instances and agentless scanning for container images in ECR.
@@ -1056,7 +1052,7 @@ Once Macie has identified and classified sensitive data, it provides you with a 
 
 Macie is a valuable tool for any organization that is using AWS S3 to store sensitive data. It can help you to identify and protect your sensitive data from unauthorized access, theft, and loss.
 
-**Here is some short information about Amazon Macie that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about Amazon Macie for architecture and operations:**
 
 - Macie is a data security service that uses machine learning to automatically discover, classify, and protect sensitive data in Amazon S3.
 - Macie can help you to identify and protect a wide range of sensitive data types, including personally identifiable information (PII), financial data, intellectual property, and healthcare data, across your S3 buckets.
@@ -1081,7 +1077,7 @@ AWS IAM Access Analyzer is a service that helps you identify, understand, and re
 
 Access Analyzer also provides you with recommendations on how to remediate the security risks that it identifies.
 
-**Here is some short information about AWS IAM Access Analyzer that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about AWS IAM Access Analyzer for architecture and operations:**
 
 - AWS IAM Access Analyzer is a service that helps you identify, understand, and remediate potential security risks in your AWS IAM policies.
 - Access Analyzer uses graph analysis to analyze your IAM policies and identify potential security risks, such as excessive permissions, unintended access, and public access.
@@ -1123,7 +1119,7 @@ CodePipeline works by modeling and automating the steps required to release your
 
 CodePipeline can be integrated with a variety of AWS services, such as Amazon S3, Amazon Elastic Container Registry (ECR), AWS Lambda, and AWS CloudFormation. This allows you to use CodePipeline to automate the release and deployment process for a wide range of applications.
 
-**Here is some short information about AWS CodePipeline that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about AWS CodePipeline for architecture and operations:**
 
 - AWS CodePipeline is a continuous delivery service that helps you automate the release and deployment process for your applications.
 - CodePipeline works by modeling and automating the steps required to release your software, such as retrieving the code from your source code repository, compiling, packaging, and testing your code, and deploying your code to your production environment.
@@ -1159,7 +1155,7 @@ CodeBuild works by building your code in a Docker container environment, executi
 
 CodeBuild can be integrated with a variety of AWS services, such as Amazon S3, Amazon Elastic Container Registry (ECR), and AWS CodePipeline. This allows you to automate the build, test, and deployment process for your applications.
 
-**Here is some short information about AWS CodeBuild that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about AWS CodeBuild for architecture and operations:**
 
 - AWS CodeBuild is a fully managed continuous integration service that automates the build, test, and packaging of your software.
 - CodeBuild scales with your needs and helps you to release high-quality software more quickly and reliably.
@@ -1198,7 +1194,7 @@ CodeDeploy works by deploying your application code to a set of instances or ser
 
 CodeDeploy can be integrated with a variety of AWS services, such as Amazon S3, AWS CloudFormation, and AWS CodePipeline. This allows you to automate the deployment process for your applications.
 
-**Here is some short information about AWS CodeDeploy that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about AWS CodeDeploy for architecture and operations:**
 
 - AWS CodeDeploy is a deployment service that helps you automate application deployments to Amazon EC2 instances, on-premises instances, serverless applications (AWS Lambda), and Amazon ECS/EKS.
 - CodeDeploy makes it easy to reliably deploy code and infrastructure changes to your applications.
@@ -1236,7 +1232,7 @@ CodeCommit is a fully managed service, so you don't need to provision or manage 
 
 CodeCommit can be integrated with a variety of other AWS services, such as AWS CodePipeline, AWS CodeDeploy, and AWS CodeBuild. This allows you to automate your software development and deployment process.
 
-**Here is some short information about AWS CodeCommit that you will need to know to pass the AWS Certified Solutions Architect Associate exam:**
+**Key points about AWS CodeCommit for architecture and operations:**
 
 - AWS CodeCommit is a fully managed, highly scalable, secure source control service that hosts private Git repositories.
 - CodeCommit makes it easy for teams to collaborate on code development and track changes over time.
