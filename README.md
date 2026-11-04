@@ -54,30 +54,30 @@ A practical handbook for engineers who design, build, and run systems on AWS. It
 
 ## Amazon Elastic Compute Cloud (EC2)
 
-Amazon EC2 provides secure, resizable compute capacity in the cloud. Key concepts:
+Amazon EC2 provides resizable virtual server capacity in the cloud. Key concepts:
 
-- **Instance Types**:
-  - General Purpose (M7g, T4g, M7i, T3, M7a, M7gd)
-  - Compute Optimized (C7g, C7i, C7a, C7gd)
-  - Memory Optimized (R7iz, R7a, R7g, R7i, R8g, X2idn, X2iedn, X8g, U7i)
-  - Accelerated Computing (P4d, G5, VT1, P5en, Trn2)
-  - Storage Optimized (Im4gn, Is4gen, I4i, I7i, I7ie)
+- **Instance Types** (named by family; the generations within each family change over time, so check the current instance types list):
+  - General Purpose (M, T)
+  - Compute Optimized (C)
+  - Memory Optimized (R, X, U)
+  - Accelerated Computing (P, G, Trn, VT)
+  - Storage Optimized (I, Im, Is)
 
 - **Pricing Models**:
-  - On-Demand (short-term needs)
-  - Savings Plans (1-3 year commitment; discount sharing across accounts in an organization can be configured)
-  - Spot Instances (up to 90% discount)
-  - Reserved Instances (capacity reservation; discount sharing across accounts in an organization can be configured)
+  - On-Demand (no commitment)
+  - Savings Plans (1- or 3-year hourly spend commitment; applies across accounts in an AWS Organization, and does not reserve capacity)
+  - Spot Instances (up to 90% off On-Demand prices)
+  - Reserved Instances (1- or 3-year billing discount; a zonal RI also reserves capacity in its Availability Zone)
   - Dedicated Hosts (physical servers for your use)
   - Dedicated Instances (EC2 instances on single-tenant hardware)
-  - Capacity Reservations (reserve EC2 capacity for any duration)
+  - Capacity Reservations (reserve capacity in a specific Availability Zone with no term commitment; no billing discount of their own, but Savings Plans and Regional RIs apply to them)
 
 - **Advanced Features**:
   - Nitro System (enhanced security & performance)
   - Elastic Fabric Adapter (EFA) for HPC and ML networking
-  - Capacity Blocks for ML (reserved GPU capacity for specific durations, leveraging new AI/ML instances like P5en, Trn2)
+  - Capacity Blocks for ML (reserved GPU capacity for a fixed start time and duration)
   - EC2 Instance Connect for browser-based SSH
-  - EC2 Fleet and Spot Fleet (combining On-Demand, Reserved, and Spot Instances)
+  - EC2 Fleet and Spot Fleet (launch On-Demand and Spot capacity across instance types and Availability Zones in one request)
 
 - **Best Practices**:
   - Use Instance Metadata Service (IMDSv2) for enhanced security
@@ -86,8 +86,6 @@ Amazon EC2 provides secure, resizable compute capacity in the cloud. Key concept
   - Utilize EC2 Auto Scaling for elasticity and high availability
   - Implement AWS Systems Manager for operational automation
   - Continuously monitor and optimize costs using AWS Cost Explorer and Compute Optimizer
-
-EC2 is a core service in AWS, and it is used by millions of customers around the world. It is a powerful and flexible tool that can be used to build and run a wide variety of applications.
 
 ## Amazon Elastic Container Service (ECS)
 
