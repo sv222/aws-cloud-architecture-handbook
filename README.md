@@ -494,14 +494,14 @@ Key points about SQS for architecture and operations:
 - SQS is highly available and durable, and it can scale to millions of messages per second.
 - SQS is cost-effective, and it offers a variety of features to help you save money, such as pay-as-you-go pricing and dead-letter queues.
 - SQS can be used to decouple and scale a wide range of applications and microservices, including web applications, mobile applications, and IoT applications.
-- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon Lambda, Amazon SNS, AWS EventBridge, and AWS S3.
+- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, AWS EventBridge, and AWS S3.
 
 Here are some additional details about SQS that you may want to know:
 
 - SQS offers two types of queues: Standard Queues (at-least-once delivery, best-effort ordering) and FIFO Queues (exactly-once processing, strict ordering).
 - SQS queues can be configured with different visibility timeouts, which determines how long a message is visible to consumers before it is automatically hidden.
 - SQS queues can be configured with dead-letter queues, which are queues where messages are sent if they cannot be processed successfully.
-- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon Lambda, Amazon SNS, AWS EventBridge, and AWS S3.
+- SQS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon SNS, AWS EventBridge, and AWS S3.
 
 ## Amazon Simple Notification Service (SNS)
 
@@ -521,7 +521,7 @@ Here are some additional details about Amazon SNS that you may want to know:
 - SNS messages can be sent in a variety of formats, including JSON, XML, and raw text.
 - SNS messages can be encrypted at rest (SSE) and in transit (HTTPS).
 - SNS messages can be delivered to a variety of endpoints, including email, SMS, HTTP/S, Amazon SQS queues, AWS Lambda functions, and mobile push notifications.
-- SNS can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon Lambda, Amazon CloudWatch, AWS EventBridge, and AWS Kinesis Data Firehose.
+- SNS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon CloudWatch, AWS EventBridge, and AWS Kinesis Data Firehose.
 - SNS supports FIFO topics for strict message ordering, deduplication, and message grouping.
 
 ## Amazon API Gateway
