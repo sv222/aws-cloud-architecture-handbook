@@ -687,22 +687,22 @@ The AWS Well-Architected Framework is a set of guiding principles for designing 
 
 ## AWS Cost Optimization Strategies
 
-AWS cost optimization strategies help you reduce your AWS costs without sacrificing performance or reliability. Some of the most important cost optimization strategies include:
+These are the main levers for reducing AWS spend without sacrificing performance or reliability:
 
 - **Choose the right service for the job:** Select the most appropriate AWS service for your workload, considering its features, performance, and pricing model.
 - **Right-size your resources:** Continuously analyze and adjust the size of your AWS resources (e.g., EC2 instances, RDS databases) to match your workload's actual needs, avoiding over-provisioning.
 - **Utilize pricing models effectively:**
-  - **Savings Plans:** Flexible pricing model offering significant savings (up to 72%) on EC2, Fargate, and Lambda usage in exchange for a 1-year or 3-year commitment to a consistent amount of compute usage.
-  - **Reserved Instances (RIs):** Offer substantial discounts (up to 75%) compared to On-Demand pricing for a commitment to a specific instance type in a region for 1-year or 3-year terms.
-  - **Spot Instances:** Leverage unused EC2 capacity at steep discounts (up to 90%) for fault-tolerant workloads.
+  - **Savings Plans:** Commit to a consistent spend ($/hour) for a 1-year or 3-year term. Commitments cannot be cancelled during the term. Compute Savings Plans save up to 66% on EC2, Fargate, and Lambda usage. EC2 Instance Savings Plans save up to 72%, but only within one instance family in one Region. Database Savings Plans cover services such as Aurora, RDS, and DynamoDB.
+  - **Reserved Instances (RIs):** Standard RIs save up to 72% compared to On-Demand pricing for a commitment to a specific instance type in a Region for a 1-year or 3-year term.
+  - **Spot Instances:** Leverage unused EC2 capacity at steep discounts (up to 90%) for fault-tolerant workloads. EC2 can reclaim Spot Instances with two minutes' notice.
 - **Implement Cost Allocation Tags:** Tag your resources to categorize and track costs across different projects, departments, or environments.
 - **Monitor and Analyze Costs:** Use AWS Cost Explorer, AWS Budgets, and AWS Organizations to visualize, manage, and forecast your spending, and identify cost optimization opportunities.
 - **Automate Cost Control:** Implement automation for stopping idle resources, scaling down during off-peak hours, and deleting unneeded resources.
 - **Leverage Serverless Architectures:** Pay only for compute time consumed, eliminating idle capacity costs.
 - **Optimize Data Transfer Costs:** Design architectures to minimize data transfer across regions, Availability Zones, and to the internet.
 - **Use AWS Compute Optimizer:** Get recommendations for right-sizing your compute resources.
-- **Use AWS Trusted Advisor:** Get recommendations for cost optimization, security, performance, fault tolerance, and service limits.
-- **Consider using cost-effective storage tiers for S3, such as S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive.**
+- **Use AWS Trusted Advisor:** Get recommendations across six categories: cost optimization, security, performance, fault tolerance, operational excellence, and service quotas. Full check access requires a Business Support+, Enterprise Support, or Unified Operations plan.
+- **Use cheaper S3 storage classes for cold data:** S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive cost less per GB but take hours to restore. For data with unpredictable access, S3 Intelligent-Tiering moves objects between tiers automatically. Its archive tiers are opt-in and suit only data that can be retrieved asynchronously.
 
 ## Amazon EventBridge
 
