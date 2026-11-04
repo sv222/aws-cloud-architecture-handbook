@@ -786,8 +786,6 @@ Here are some additional details that you may want to know:
   - Inventory: Provides a detailed inventory of your AWS resources, including software installed and configuration details.
   - Parameter Store: Provides a secure, hierarchical storage for configuration data management and secrets.
   - Session Manager: Provides secure and auditable instance management without opening inbound ports.
-  - Patch Manager: Automates patching of operating systems and applications.
-  - State Manager: Automates the process of keeping your EC2 instances and other AWS resources in a defined state.
 - Systems Manager can be integrated with other AWS services, such as AWS Systems Manager Incident Manager, AWS CloudFormation, AWS CodePipeline, and AWS Config.
 - Systems Manager supports Run Command for remote execution of commands on instances.
 
