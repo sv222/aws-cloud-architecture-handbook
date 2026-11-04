@@ -521,7 +521,7 @@ Here are some additional details about Amazon SNS that you may want to know:
 - SNS messages can be sent in a variety of formats, including JSON, XML, and raw text.
 - SNS messages can be encrypted at rest (SSE) and in transit (HTTPS).
 - SNS messages can be delivered to a variety of endpoints, including email, SMS, HTTP/S, Amazon SQS queues, AWS Lambda functions, and mobile push notifications.
-- SNS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon CloudWatch, AWS EventBridge, and AWS Kinesis Data Firehose.
+- SNS can be integrated with a variety of other AWS services, such as Amazon EC2, AWS Lambda, Amazon CloudWatch, AWS EventBridge, and Amazon Data Firehose.
 - SNS supports FIFO topics for strict message ordering, deduplication, and message grouping.
 
 ## Amazon API Gateway
@@ -958,13 +958,13 @@ Amazon Kinesis is a fully managed, scalable, real-time, data streaming service. 
 Kinesis consists of three core components:
 
 - **Kinesis Data Streams:** This service captures and processes streaming data in real time. Data can be ingested into Kinesis Data Streams from a variety of sources, such as IoT devices, web applications, and server logs.
-- **Kinesis Data Firehose:** This service delivers streaming data to data lakes and analytics applications. Kinesis Data Firehose can transform and buffer data before delivering it to its destination, making it easy to integrate with a variety of data processing systems.
+- **Amazon Data Firehose:** This service delivers streaming data to data lakes and analytics applications. Firehose can transform and buffer data before delivering it to its destination, making it easy to integrate with a variety of data processing systems.
 - **Managed Service for Apache Flink (formerly Kinesis Data Analytics):** This service makes it easy to process streaming data in real time using Apache Flink, with built-in libraries and connectors for real-time data processing.
 
 Key points about Amazon Kinesis for architecture and operations:
 
 - **Kinesis Data Streams:** A highly scalable and durable real-time data streaming service that can continuously capture and store gigabytes of data per second from hundreds of thousands of sources.
-- **Kinesis Data Firehose:** A fully managed service for delivering real-time streaming data to destinations like Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and Splunk. It can transform, buffer, and compress data before delivery.
+- **Amazon Data Firehose:** A fully managed service for delivering real-time streaming data to destinations like Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and Splunk. It can transform, buffer, and compress data before delivery.
 - **Managed Service for Apache Flink:** A fully managed service that makes it easy to process and analyze streaming data in real time using Apache Flink.
 - **Kinesis Video Streams:** A fully managed service that makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), and other processing.
 
@@ -973,7 +973,7 @@ Here are some additional details about Amazon Kinesis that you may want to know:
 - Kinesis Data Streams is a durable service that stores data for up to 365 days and can withstand data loss and corruption.
 - Kinesis Data Streams is scalable, allowing you to easily adjust shard capacity to handle varying data ingestion rates.
 - Kinesis Data Streams is secure, with data encrypted at rest (KMS) and in transit (HTTPS).
-- Kinesis Data Firehose is a cost-effective and serverless service for delivering streaming data to various destinations.
+- Amazon Data Firehose is a cost-effective and serverless service for delivering streaming data to various destinations.
 - Amazon Managed Service for Apache Flink is a serverless service that simplifies real-time data processing with built-in connectors and templates.
 - Kinesis Video Streams provides secure, durable, and cost-effective storage for video streams.
 
