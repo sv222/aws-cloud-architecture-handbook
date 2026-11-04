@@ -194,26 +194,21 @@ Elastic Load Balancing (ELB) is a load balancing service that automatically dist
 
 Key points about Elastic Load Balancing for architecture and operations:
 
-- ELB is a load balancing service that distributes incoming traffic across multiple targets.
-- ELB monitors the health of its registered targets and routes traffic only to the healthy targets.
-- ELB scales your load balancer capacity automatically in response to changes in incoming traffic.
 - ELB supports four different types of load balancers:
   - Application Load Balancer: Routes traffic to web applications (Layer 7).
   - Network Load Balancer: Routes traffic to TCP and UDP applications (Layer 4).
   - Gateway Load Balancer: Enables you to deploy, scale, and manage third-party virtual appliances.
-  - Classic Load Balancer: A legacy load balancer that is still supported, but not recommended for new applications.
+  - Classic Load Balancer: A legacy load balancer that is still supported. AWS recommends migrating to an Application or Network Load Balancer.
 
 Here are some additional details about Elastic Load Balancing that you may want to know:
 
-- ELB can be used to load balance traffic to applications hosted on AWS, on-premises, or with other cloud providers.
-- ELB can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, and Amazon CloudFront.
+- IP address targets can be on-premises servers reachable over AWS Direct Connect or Site-to-Site VPN.
+- Cross-zone load balancing is on by default for Application Load Balancers, where you can turn it off per target group. It is off by default for Network and Gateway Load Balancers.
 - ELB provides a variety of features to help you manage your load balancers, including:
   - Health checks: Monitors the health of your registered targets and routes traffic only to the healthy targets.
-  - Listener rules: Routes traffic to different targets based on the request.
+  - Listener rules (Application Load Balancer): Route requests to different target groups based on path, host, or HTTP header conditions.
   - Target groups: Groups of targets that you can register with your load balancer.
-  - Security groups: Controls inbound and outbound traffic to and from your load balancer.
-
-Elastic Load Balancing is a powerful tool for distributing incoming traffic across multiple targets and ensuring that your applications are highly available and scalable. It is easy to use and it provides a variety of features to help you meet your load balancing needs.
+  - Security groups: Supported on Application, Network (only when set at creation), and Classic Load Balancers. Not supported on Gateway Load Balancers.
 
 ## AWS Transfer Family
 
