@@ -729,45 +729,28 @@ Here is an example of how Amazon EventBridge can be used to build a serverless a
 
 ## AWS Step Functions
 
-AWS Step Functions is a serverless workflow service that makes it easy to coordinate the execution of distributed applications and microservices. It allows you to define workflows as a series of steps, and then Step Functions will take care of executing those steps in the correct order, handling retries and errors automatically.
+AWS Step Functions is a serverless workflow service that makes it easy to coordinate the execution of distributed applications and microservices. It allows you to define workflows as a series of steps, and Step Functions runs them in the correct order. Retries and error handling apply only where you define Retry and Catch fields on a state.
 
 Key points about AWS Step Functions for architecture and operations:
 
-- AWS Step Functions is a serverless workflow service that makes it easy to coordinate the execution of distributed applications and microservices.
-- It allows you to define workflows as a series of steps, and then Step Functions will take care of executing those steps in the correct order, handling retries and errors automatically.
 - Step Functions can integrate with a variety of AWS services, including AWS Lambda, Amazon S3, Amazon DynamoDB, Amazon SNS, Amazon SQS, and over 220 AWS services directly.
 - Step Functions is a highly scalable and reliable service that can handle millions of workflows per second, with built-in error handling, retries, and parallel execution.
-- It is also a cost-effective service, as you only pay for the state transitions and executions.
 - Step Functions supports two types of workflows: Standard Workflows (long-running, durable, auditable) and Express Workflows (high-volume, short-duration, event-driven).
-
-Here are some additional details about AWS Step Functions that you may want to know:
-
+- Standard workflows run for up to one year and execute exactly once. Express workflows run for up to five minutes. Asynchronous Express executions are at-least-once, so keep their logic idempotent. Synchronous Express executions are at-most-once.
+- Only Express workflows support synchronous execution through the StartSyncExecution API. Express workflows also do not support the .sync (job-run) or .waitForTaskToken (callback) service integration patterns.
+- Standard workflows are billed per state transition, including retries. Express workflows are billed per request and by duration and memory.
 - Step Functions workflows are defined using the Amazon States Language, a JSON-based structured language.
-- Step Functions workflows can be executed synchronously or asynchronously, depending on the workflow type (Standard or Express).
-- Step Functions workflows can be triggered by a variety of events, such as Amazon EventBridge events, S3 object uploads, DynamoDB stream insertions, or AWS Lambda function invocations.
+- Executions start through the StartExecution API, the console, EventBridge rules (including S3 object events routed through EventBridge), or EventBridge Scheduler.
 - Step Functions workflows can be monitored and managed using the AWS Management Console, the AWS CLI, AWS SDKs, and integrated with CloudWatch and X-Ray for observability.
-- Step Functions Distributed Map allows for processing large datasets with parallel iterations.
+- Distributed Map runs up to 10,000 child workflow executions in parallel, for processing large datasets.
 - Step Functions supports Workflow Studio for visual workflow design and orchestration.
-- Step Functions supports integration with over 220 AWS services.
 
 Here is an example of how AWS Step Functions can be used to build a serverless application:
 
 - You have an application that processes images that are uploaded to S3.
 - You can use Step Functions to create a workflow that first resizes the image, then converts it to a different format, and then stores it in a different S3 bucket.
-- The workflow can be triggered whenever a new image is uploaded to the source S3 bucket.
-- Step Functions will take care of executing the steps of the workflow in the correct order, handling retries and errors automatically.
-
-This is just one example of how AWS Step Functions can be used to build serverless applications. Step Functions is a flexible and powerful tool that can be used to solve a wide variety of problems.
-
-Here are some tips for using AWS Step Functions in your AWS applications:
-
-- Use Step Functions to coordinate the execution of distributed applications and microservices.
-- Use Step Functions to automate complex workflows, such as order processing, image processing, and data processing.
-- Use Step Functions to handle retries and errors automatically.
-- Use Step Functions to integrate with a variety of AWS services.
-- Use Step Functions to monitor and manage your workflows.
-
-AWS Step Functions is a powerful tool that can be used to simplify and automate your application architectures.
+- An EventBridge rule on S3 object-created events can start the workflow whenever a new image is uploaded to the source S3 bucket.
+- Step Functions runs the steps of the workflow in the correct order, and the Retry and Catch fields on each state handle failures.
 
 ## Amazon Kinesis
 
