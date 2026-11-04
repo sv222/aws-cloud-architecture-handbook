@@ -761,29 +761,21 @@ Amazon Kinesis is a fully managed, scalable, real-time, data streaming service. 
 - Application monitoring
 - Log aggregation
 
-Kinesis consists of three core components:
+The Amazon Kinesis family includes these services:
 
 - **Kinesis Data Streams:** This service captures and processes streaming data in real time. Data can be ingested into Kinesis Data Streams from a variety of sources, such as IoT devices, web applications, and server logs.
-- **Amazon Data Firehose:** This service delivers streaming data to data lakes and analytics applications. Firehose can transform and buffer data before delivering it to its destination, making it easy to integrate with a variety of data processing systems.
-- **Managed Service for Apache Flink (formerly Kinesis Data Analytics):** This service makes it easy to process streaming data in real time using Apache Flink, with built-in libraries and connectors for real-time data processing.
+- **Amazon Data Firehose (formerly Kinesis Data Firehose):** This service delivers streaming data to data lakes and analytics applications. Firehose can transform and buffer data before delivering it to its destination, making it easy to integrate with a variety of data processing systems.
+- **Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics for Apache Flink):** This service makes it easy to process streaming data in real time using Apache Flink, with built-in libraries and connectors for real-time data processing.
+- **Kinesis Video Streams:** A fully managed service that makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), and other processing.
 
 Key points about Amazon Kinesis for architecture and operations:
 
-- **Kinesis Data Streams:** A highly scalable and durable real-time data streaming service that can continuously capture and store gigabytes of data per second from hundreds of thousands of sources.
-- **Amazon Data Firehose:** A fully managed service for delivering real-time streaming data to destinations like Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and Splunk. It can transform, buffer, and compress data before delivery.
-- **Managed Service for Apache Flink:** A fully managed service that makes it easy to process and analyze streaming data in real time using Apache Flink.
-- **Kinesis Video Streams:** A fully managed service that makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), and other processing.
-
-Here are some additional details about Amazon Kinesis that you may want to know:
-
-- Kinesis Data Streams is a durable service that stores data for up to 365 days and can withstand data loss and corruption.
-- Kinesis Data Streams is scalable, allowing you to easily adjust shard capacity to handle varying data ingestion rates.
-- Kinesis Data Streams is secure, with data encrypted at rest (KMS) and in transit (HTTPS).
-- Amazon Data Firehose is a cost-effective and serverless service for delivering streaming data to various destinations.
-- Amazon Managed Service for Apache Flink is a serverless service that simplifies real-time data processing with built-in connectors and templates.
-- Kinesis Video Streams provides secure, durable, and cost-effective storage for video streams.
-
-Amazon Kinesis is a powerful and flexible tool that can be used to build and run a wide variety of real-time data processing applications.
+- Kinesis Data Streams is a durable service that can withstand data loss and corruption. Data is synchronously replicated across three Availability Zones in a Region.
+- Kinesis Data Streams retains data for 24 hours by default. Retention can be extended to 365 days, and retention beyond 24 hours incurs extra charges.
+- In provisioned mode, each shard accepts up to 1 MB/s or 1,000 records/s of writes and serves up to 2 MB/s of reads. You pay per shard-hour and resize by splitting, merging, or updating the shard count. On-demand mode scales capacity automatically and bills by data volume.
+- Server-side encryption with AWS KMS is optional and set per stream. The AWS-managed aws/kinesis key has no key charge, while customer-managed keys incur KMS charges. Data in transit is encrypted over HTTPS.
+- Amazon Data Firehose holds data until its buffer size or interval is reached, so delivery is near real-time rather than instant. It can also transform and compress data before delivery to destinations such as Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and Splunk.
+- Kinesis Data Analytics for SQL Applications is no longer available. AWS stopped allowing new applications on October 15, 2025 and ended support on January 27, 2026. Use Amazon Managed Service for Apache Flink instead.
 
 ## Amazon GuardDuty
 
