@@ -175,24 +175,18 @@ Amazon Route 53 is a highly scalable and available cloud Domain Name System (DNS
 
 Key points about Amazon Route 53 for architecture and operations:
 
-- Route 53 is a highly scalable and available cloud DNS web service.
-- Route 53 provides a reliable and secure way to route end users to internet applications.
 - Route 53 supports a variety of DNS record types, including A, AAAA, CNAME, MX, NS, SOA, TXT, SRV, and CAA.
 - Route 53 provides a variety of features to help you manage your DNS records, including:
   - DNS health checks
-  - Traffic flow routing (including Geolocation, Latency, Weighted, Failover, and Multi-value answer routing)
-  - Geolocation routing
-  - Alias records
+  - Routing policies: simple, weighted, latency, failover, geolocation, geoproximity, IP-based, and multivalue answer
+    - AWS recommends a default record with geolocation, geoproximity, and latency records, so clients that match no rule still get an answer
+  - Alias records, which can be created at the zone apex (a CNAME cannot)
   - Route 53 Resolver (for DNS resolution within your VPC)
-  - DNSSEC support for enhanced security
+  - DNSSEC support
 
 Here are some additional details about Amazon Route 53 that you may want to know:
 
-- Route 53 can be used to route traffic to any type of internet application, including websites, web applications, mobile applications, and APIs.
 - Route 53 can be used to route traffic to applications hosted on AWS, on-premises, or with other cloud providers.
-- Route 53 can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, and Amazon CloudFront.
-
-Route 53 is a powerful tool for managing DNS records and routing traffic to internet applications. It is easy to use and it provides a variety of features to help you meet your DNS and routing needs.
 
 ## Amazon Elastic Load Balancing (ELB)
 
