@@ -559,29 +559,24 @@ AWS Identity and Access Management (IAM) is a web service that enables you to se
 
 Key points about AWS Identity and Access Management (IAM) for architecture and operations:
 
-- IAM is a fully managed service that enables you to securely control access to AWS services and resources.
 - IAM uses users, groups, and roles to manage access to AWS resources.
 - IAM uses identity-based policies (attached to users, groups, roles), resource-based policies (attached to resources like S3 buckets, SQS queues), and access control lists (ACLs) to manage access to AWS resources.
-- IAM users are individual people who are authorized to use AWS services and resources.
+- IAM users are individual people or applications that are authorized to use AWS services and resources.
 - IAM groups are collections of IAM users who are assigned the same permissions.
-- IAM roles are sets of permissions that can be assigned to IAM users or groups.
-- IAM permissions are actions that IAM users or groups are allowed to perform on AWS resources.
+- IAM roles are not assigned to users or groups. A principal assumes a role to get temporary credentials, from the same account, another account, a federated identity provider, or an AWS service.
+- Permissions are allow and deny statements in policies that name actions and resources.
+- Access is denied by default. An explicit allow is required, and an explicit deny in any applicable policy overrides any allow.
+- Service control policies (SCPs) in AWS Organizations and permissions boundaries limit the maximum permissions available. A request must also be allowed by each of them that applies.
+- For people, use IAM Identity Center to federate users from an identity provider and issue temporary credentials, instead of creating IAM users.
+- Do not use the root user for everyday tasks. Enable MFA on it, do not create root access keys, and use it only for the tasks that require it.
 
 Here are some additional details that you may want to know:
 
-- IAM can be used to implement least privilege access, which means that users and groups are only granted the permissions that they need to perform their jobs.
-- IAM can be used to implement multi-factor authentication (MFA) for enhanced security.
-- IAM can be used to audit all access to your AWS resources using AWS CloudTrail and IAM Access Analyzer.
-- IAM Access Analyzer helps identify unintended access to your resources.
-- IAM Roles Anywhere allows workloads outside of AWS to use IAM roles.
+- IAM users can register up to eight MFA devices of these types: passkeys and FIDO security keys, virtual authenticator apps, and hardware TOTP tokens. SMS-based MFA is no longer supported.
 - IAM supports attribute-based access control (ABAC) for fine-grained permissions.
-
-Example use cases of IAM:
-
-- **Creating and managing AWS users and groups:** IAM can be used to create and manage AWS users and groups. This allows you to control who has access to your AWS resources and what they can do with them.
-- **Implementing least privilege access:** IAM can be used to implement least privilege access, which means that users and groups are only granted the permissions that they need to perform their jobs. This helps to improve the security of your AWS environment.
-- **Implementing multi-factor authentication:** IAM can be used to implement multi-factor authentication (MFA), which adds an extra layer of security to your AWS account. MFA requires users to enter a code from their mobile phone in addition to their password when logging in.
-- **Auditing all access to your AWS resources:** IAM can be used to audit all access to your AWS resources, so that you can track who is accessing what and when. This information can be used to troubleshoot problems and identify suspicious activity.
+- IAM Roles Anywhere allows workloads outside of AWS to use IAM roles.
+- IAM Access Analyzer helps identify unintended access to your resources.
+- AWS CloudTrail records the API calls made with IAM identities, which is the usual source for auditing access.
 
 ## AWS Key Management Service (KMS)
 
