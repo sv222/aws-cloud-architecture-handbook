@@ -119,29 +119,19 @@ Key points about Amazon ECR for architecture and operations:
 
 ## Amazon Elastic Kubernetes Service (EKS)
 
-Amazon EKS is a fully managed Kubernetes service that makes it easy to deploy, manage, and scale Kubernetes applications on AWS. EKS provides Kubernetes worker nodes, while the control plane is managed by AWS. EKS also provides a variety of features to help you manage your Kubernetes applications, including:
-
-- **Kubernetes orchestration:** EKS automatically provisions and manages Kubernetes clusters, so you can focus on building and running your applications.
-- **Security:** EKS provides a variety of security features to help you protect your Kubernetes applications, including encryption, authentication, and authorization.
-- **Load balancing:** EKS provides load balancing for your Kubernetes applications, so you can ensure that your applications are highly available.
-- **Monitoring:** EKS provides monitoring for your Kubernetes applications, so you can track the health and performance of your applications.
+Amazon EKS is a managed Kubernetes service that makes it easy to deploy, manage, and scale Kubernetes applications on AWS. AWS operates the Kubernetes control plane (API server and related components). You manage the worker nodes unless you use EKS Auto Mode, which provisions and manages the compute for you.
 
 Key points about Amazon EKS for architecture and operations:
 
-- EKS is a fully managed Kubernetes service.
-- EKS provides a Kubernetes API server, a Kubernetes control plane, and Kubernetes worker nodes. As of November 2026, Amazon EKS supports Kubernetes version 1.37.
-- EKS provides a variety of features to help you manage your Kubernetes applications, including Kubernetes orchestration, enhanced security, flexible load balancing options (ALB, NLB, CLB), and comprehensive monitoring (CloudWatch Container Insights).
-
-Here are some additional details about Amazon EKS that you may want to know:
-
-- EKS can be used to deploy and manage Kubernetes applications in any AWS Region.
-- EKS can be used to deploy and manage Kubernetes applications of any size, from a small website to a large enterprise application.
-- EKS can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, and Amazon Route 53.
-- The EKS Dashboard provides centralized visibility and management of Kubernetes clusters.
+- Worker node options: managed node groups, self-managed EC2 nodes, AWS Fargate, and EKS Hybrid Nodes for machines in your own data centers.
+- Kubernetes version support: about 14 months of standard support after a version is released, followed by extended support, for 26 months in total.
+- As of November 2026, Amazon EKS supports Kubernetes version 1.37.
+- Load balancing with the AWS Load Balancer Controller: a Network Load Balancer for each Service of type LoadBalancer, and an Application Load Balancer for each Ingress. The legacy in-tree controller creates Classic Load Balancers.
+- Use EKS access entries to map IAM principals to Kubernetes RBAC permissions. The aws-auth ConfigMap is deprecated.
 - EKS Pod Identity simplifies IAM credentials for pods.
-- Expanded support for Edge and Hybrid use cases (e.g., EKS Anywhere).
-
-EKS is a powerful tool for managing Kubernetes applications. It is easy to use and it provides a variety of features to help you deploy, manage, and scale your Kubernetes applications securely and efficiently.
+- Monitoring with CloudWatch Container Insights.
+- The EKS Dashboard provides centralized visibility and management of Kubernetes clusters.
+- EKS Hybrid Nodes runs your on-premises machines as nodes in an EKS cluster. EKS Anywhere is a separate product for disconnected or air-gapped environments.
 
 ## AWS Lambda
 
