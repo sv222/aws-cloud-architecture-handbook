@@ -1,61 +1,59 @@
 # AWS Cloud Architecture Handbook: Design Patterns and Well-Architected Guidance for Engineers
 
-![AWS cloud architecture handbook](/extras/AWS_Certified_Solutions_Architect_Associate_SAA_C03_Cheatsheet_logo.png)
+![AWS cloud architecture handbook](extras/AWS_Certified_Solutions_Architect_Associate_SAA_C03_Cheatsheet_logo.png)
 
 A practical AWS cloud architecture handbook for engineers who design, build, and run systems on AWS. It summarizes core services, design patterns, limits, and AWS Well-Architected Framework guidance, updated for 2026. The content also lines up with the AWS Certified Solutions Architect – Associate (SAA-C03) domains.
 
-![AWS Services MAP](/extras/aws_services_map.jpg)
+![AWS Services MAP](extras/aws_services_map.jpg)
 
 ## Table of Contents
 
-- [AWS Cloud Architecture Handbook: Design Patterns and Well-Architected Guidance for Engineers](#aws-cloud-architecture-handbook-design-patterns-and-well-architected-guidance-for-engineers)
-  - [Table of Contents](#table-of-contents)
-  - [Amazon Elastic Compute Cloud (EC2)](#amazon-elastic-compute-cloud-ec2)
-  - [Amazon Elastic Container Service (ECS)](#amazon-elastic-container-service-ecs)
-  - [Amazon Elastic Container Registry (ECR)](#amazon-elastic-container-registry-ecr)
-  - [Amazon Elastic Kubernetes Service (EKS)](#amazon-elastic-kubernetes-service-eks)
-  - [AWS Lambda](#aws-lambda)
-  - [Amazon Virtual Private Cloud (VPC)](#amazon-virtual-private-cloud-vpc)
-  - [Amazon Route 53](#amazon-route-53)
-  - [Amazon Elastic Load Balancing (ELB)](#amazon-elastic-load-balancing-elb)
-  - [AWS Transfer Family](#aws-transfer-family)
-  - [AWS Direct Connect](#aws-direct-connect)
-  - [Amazon Simple Storage Service (S3)](#amazon-simple-storage-service-s3)
-  - [Amazon Elastic Block Store (EBS)](#amazon-elastic-block-store-ebs)
-  - [Amazon Elastic File System (EFS)](#amazon-elastic-file-system-efs)
-  - [Amazon Relational Database Service (RDS)](#amazon-relational-database-service-rds)
-  - [Amazon Aurora](#amazon-aurora)
-  - [Amazon DynamoDB](#amazon-dynamodb)
-  - [Amazon Redshift](#amazon-redshift)
-  - [Amazon Simple Queue Service (SQS)](#amazon-simple-queue-service-sqs)
-  - [Amazon Simple Notification Service (SNS)](#amazon-simple-notification-service-sns)
-  - [Amazon API Gateway](#amazon-api-gateway)
-  - [Amazon Cognito](#amazon-cognito)
-  - [Amazon CloudWatch](#amazon-cloudwatch)
-  - [AWS CloudTrail](#aws-cloudtrail)
-  - [AWS Identity and Access Management (IAM)](#aws-identity-and-access-management-iam)
-  - [AWS Key Management Service (KMS)](#aws-key-management-service-kms)
-  - [AWS Security Hub](#aws-security-hub)
-  - [AWS CloudFormation](#aws-cloudformation)
-  - [AWS Systems Manager](#aws-systems-manager)
-  - [AWS Well-Architected Framework](#aws-well-architected-framework)
-  - [AWS Core Services](#aws-core-services)
-  - [AWS Networking and Security Services](#aws-networking-and-security-services)
-  - [AWS Deployment and Management Services](#aws-deployment-and-management-services)
-  - [AWS Cost Optimization Strategies](#aws-cost-optimization-strategies)
-  - [Amazon EventBridge](#amazon-eventbridge)
-  - [AWS Step Functions](#aws-step-functions)
-  - [Amazon Kinesis](#amazon-kinesis)
-  - [Amazon GuardDuty](#amazon-guardduty)
-  - [Amazon Inspector](#amazon-inspector)
-  - [Amazon Macie](#amazon-macie)
-  - [AWS IAM Access Analyzer](#aws-iam-access-analyzer)
-  - [AWS CodePipeline](#aws-codepipeline)
-  - [AWS CodeBuild](#aws-codebuild)
-  - [AWS CodeDeploy](#aws-codedeploy)
-  - [AWS CodeCommit](#aws-codecommit)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Amazon Elastic Compute Cloud (EC2)](#amazon-elastic-compute-cloud-ec2)
+- [Amazon Elastic Container Service (ECS)](#amazon-elastic-container-service-ecs)
+- [Amazon Elastic Container Registry (ECR)](#amazon-elastic-container-registry-ecr)
+- [Amazon Elastic Kubernetes Service (EKS)](#amazon-elastic-kubernetes-service-eks)
+- [AWS Lambda](#aws-lambda)
+- [Amazon Virtual Private Cloud (VPC)](#amazon-virtual-private-cloud-vpc)
+- [Amazon Route 53](#amazon-route-53)
+- [Amazon Elastic Load Balancing (ELB)](#amazon-elastic-load-balancing-elb)
+- [AWS Transfer Family](#aws-transfer-family)
+- [AWS Direct Connect](#aws-direct-connect)
+- [Amazon Simple Storage Service (S3)](#amazon-simple-storage-service-s3)
+- [Amazon Elastic Block Store (EBS)](#amazon-elastic-block-store-ebs)
+- [Amazon Elastic File System (EFS)](#amazon-elastic-file-system-efs)
+- [Amazon Relational Database Service (RDS)](#amazon-relational-database-service-rds)
+- [Amazon Aurora](#amazon-aurora)
+- [Amazon DynamoDB](#amazon-dynamodb)
+- [Amazon Redshift](#amazon-redshift)
+- [Amazon Simple Queue Service (SQS)](#amazon-simple-queue-service-sqs)
+- [Amazon Simple Notification Service (SNS)](#amazon-simple-notification-service-sns)
+- [Amazon API Gateway](#amazon-api-gateway)
+- [Amazon Cognito](#amazon-cognito)
+- [Amazon CloudWatch](#amazon-cloudwatch)
+- [AWS CloudTrail](#aws-cloudtrail)
+- [AWS Identity and Access Management (IAM)](#aws-identity-and-access-management-iam)
+- [AWS Key Management Service (KMS)](#aws-key-management-service-kms)
+- [AWS Security Hub](#aws-security-hub)
+- [AWS CloudFormation](#aws-cloudformation)
+- [AWS Systems Manager](#aws-systems-manager)
+- [AWS Well-Architected Framework](#aws-well-architected-framework)
+- [AWS Core Services](#aws-core-services)
+- [AWS Networking and Security Services](#aws-networking-and-security-services)
+- [AWS Deployment and Management Services](#aws-deployment-and-management-services)
+- [AWS Cost Optimization Strategies](#aws-cost-optimization-strategies)
+- [Amazon EventBridge](#amazon-eventbridge)
+- [AWS Step Functions](#aws-step-functions)
+- [Amazon Kinesis](#amazon-kinesis)
+- [Amazon GuardDuty](#amazon-guardduty)
+- [Amazon Inspector](#amazon-inspector)
+- [Amazon Macie](#amazon-macie)
+- [AWS IAM Access Analyzer](#aws-iam-access-analyzer)
+- [AWS CodePipeline](#aws-codepipeline)
+- [AWS CodeBuild](#aws-codebuild)
+- [AWS CodeDeploy](#aws-codedeploy)
+- [AWS CodeCommit](#aws-codecommit)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Amazon Elastic Compute Cloud (EC2)
 
@@ -99,13 +97,13 @@ EC2 is a core service in AWS, and it is used by millions of customers around the
 Amazon ECS is a highly scalable, high-performance container orchestration service that supports Docker containers. ECS enables you to easily deploy, manage, and scale containerized applications. ECS provides a variety of features to help you manage your containerized applications, including:
 
 - **Service discovery:** ECS automatically discovers and registers your containers, so you can easily access them from your application.
-- **Load balancing:** ECS automatically distributes traffic across your containers, so you can ensure that your application is highly available.  
+- **Load balancing:** ECS automatically distributes traffic across your containers, so you can ensure that your application is highly available.
 - **Health monitoring:** ECS monitors the health of your containers and automatically restarts any unhealthy containers.
 - **Auto scaling:** ECS can automatically scale your containers up or down based on demand, so you can ensure that your application has the resources it needs.
 
 Key points about Amazon ECS for architecture and operations:
 
-- ECS is a highly scalable, high-performance container orchestration service.  
+- ECS is a highly scalable, high-performance container orchestration service.
 - ECS supports Docker containers and OCI compliant images.
 - ECS offers various launch types, including EC2 and serverless AWS Fargate.
 - ECS provides a variety of features to help you manage your containerized applications, including service discovery, load balancing, health monitoring, auto scaling, and deep integration with persistent storage.
@@ -114,7 +112,7 @@ Key points about Amazon ECS for architecture and operations:
 Here are some additional details about Amazon ECS that you may want to know:
 
 - ECS can be used to deploy and manage containerized applications in any AWS Region.
-- ECS can be used to deploy and manage containerized applications of any size, from a small website to a large enterprise application.  
+- ECS can be used to deploy and manage containerized applications of any size, from a small website to a large enterprise application.
 - ECS can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, Amazon Route 53, Amazon EBS, and Amazon EFS.
 - Supports Windows Containers for specific workloads.
 - The AWS Copilot CLI simplifies deployment and management of containerized applications on ECS.
@@ -129,17 +127,17 @@ Amazon ECR is a fully managed container registry that makes it easy to store, ma
 Key points about Amazon ECR for architecture and operations:
 
 - ECR is a fully managed container registry.
-- ECR is integrated with ECS and EKS.  
+- ECR is integrated with ECS and EKS.
 - ECR stores Docker container images and OCI compatible artifacts.
 - ECR provides a variety of features to help you manage your container images, including:
-- Image tagging and versioning
-- Image replication
-- Image scanning
-- Image lifecycle management
+  - Image tagging and versioning
+  - Image replication
+  - Image scanning
+  - Image lifecycle management
 
 Here are some additional details about Amazon ECR that you may want to know:
 
-- ECR can be used to store container images of any size.  
+- ECR can be used to store container images of any size.
 - ECR images can be deployed to ECS or EKS clusters in any AWS Region.
 - ECR images can be accessed using the AWS Management Console, the AWS CLI, or the AWS SDKs.
 - ECR supports IPv6 for enhanced networking capabilities.
@@ -152,7 +150,7 @@ ECR is a powerful tool for managing container images. It is easy to use and it p
 Amazon EKS is a fully managed Kubernetes service that makes it easy to deploy, manage, and scale Kubernetes applications on AWS. EKS provides Kubernetes worker nodes, while the control plane is managed by AWS. EKS also provides a variety of features to help you manage your Kubernetes applications, including:
 
 - **Kubernetes orchestration:** EKS automatically provisions and manages Kubernetes clusters, so you can focus on building and running your applications.
-- **Security:** EKS provides a variety of security features to help you protect your Kubernetes applications, including encryption, authentication, and authorization.  
+- **Security:** EKS provides a variety of security features to help you protect your Kubernetes applications, including encryption, authentication, and authorization.
 - **Load balancing:** EKS provides load balancing for your Kubernetes applications, so you can ensure that your applications are highly available.
 - **Monitoring:** EKS provides monitoring for your Kubernetes applications, so you can track the health and performance of your applications.
 
@@ -180,7 +178,7 @@ AWS Lambda is a serverless compute service that lets you run code without provis
 Key points about AWS Lambda for architecture and operations:
 
 - Lambda is a serverless compute service.
-- Lambda executes your code only when needed and scales automatically.  
+- Lambda executes your code only when needed and scales automatically.
 - Lambda supports a variety of programming languages and runtimes, with continuous updates and deprecation cycles.
 
 Here are some additional details about AWS Lambda that you may want to know:
@@ -215,7 +213,7 @@ Here are some additional details about Amazon VPC that you may want to know:
 
 VPC is a powerful tool for building and managing secure and isolated networks in the cloud. It is easy to use and it provides a variety of features to help you meet your networking needs.
 
-## Amazon Route 53  
+## Amazon Route 53
 
 Amazon Route 53 is a highly scalable and available cloud Domain Name System (DNS) web service. It provides a reliable and secure way to route end users to internet applications by translating domain names, such as example.com, to the numeric IP addresses of the underlying infrastructure where the applications are hosted.
 
@@ -225,12 +223,12 @@ Key points about Amazon Route 53 for architecture and operations:
 - Route 53 provides a reliable and secure way to route end users to internet applications.
 - Route 53 supports a variety of DNS record types, including A, AAAA, CNAME, MX, NS, SOA, TXT, SRV, and CAA.
 - Route 53 provides a variety of features to help you manage your DNS records, including:
-- DNS health checks
-- Traffic flow routing (including Geolocation, Latency, Weighted, Failover, and Multi-value answer routing)
-- Geolocation routing
-- Alias records
-- Route 53 Resolver (for DNS resolution within your VPC)
-- DNSSEC support for enhanced security
+  - DNS health checks
+  - Traffic flow routing (including Geolocation, Latency, Weighted, Failover, and Multi-value answer routing)
+  - Geolocation routing
+  - Alias records
+  - Route 53 Resolver (for DNS resolution within your VPC)
+  - DNSSEC support for enhanced security
 
 Here are some additional details about Amazon Route 53 that you may want to know:
 
@@ -250,20 +248,20 @@ Key points about Amazon ELB for architecture and operations:
 - ELB monitors the health of its registered targets and routes traffic only to the healthy targets.
 - ELB scales your load balancer capacity automatically in response to changes in incoming traffic.
 - ELB supports four different types of load balancers:
-- Application Load Balancer: Routes traffic to web applications (Layer 7).
-- Network Load Balancer: Routes traffic to TCP and UDP applications (Layer 4).
-- Gateway Load Balancer: Enables you to deploy, scale, and manage third-party virtual appliances.
-- Classic Load Balancer: A legacy load balancer that is still supported, but not recommended for new applications.
+  - Application Load Balancer: Routes traffic to web applications (Layer 7).
+  - Network Load Balancer: Routes traffic to TCP and UDP applications (Layer 4).
+  - Gateway Load Balancer: Enables you to deploy, scale, and manage third-party virtual appliances.
+  - Classic Load Balancer: A legacy load balancer that is still supported, but not recommended for new applications.
 
 Here are some additional details about Amazon ELB that you may want to know:
 
 - ELB can be used to load balance traffic to applications hosted on AWS, on-premises, or with other cloud providers.
 - ELB can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon S3, and Amazon CloudFront.
 - ELB provides a variety of features to help you manage your load balancers, including:
-- Health checks: Monitors the health of your registered targets and routes traffic only to the healthy targets.
-- Listener rules: Routes traffic to different targets based on the request.
-- Target groups: Groups of targets that you can register with your load balancer.
-- Security groups: Controls inbound and outbound traffic to and from your load balancer.
+  - Health checks: Monitors the health of your registered targets and routes traffic only to the healthy targets.
+  - Listener rules: Routes traffic to different targets based on the request.
+  - Target groups: Groups of targets that you can register with your load balancer.
+  - Security groups: Controls inbound and outbound traffic to and from your load balancer.
 
 Elastic Load Balancing is a powerful tool for distributing incoming traffic across multiple targets and ensuring that your applications are highly available and scalable. It is easy to use and it provides a variety of features to help you meet your load balancing needs.
 
@@ -277,16 +275,16 @@ Key points about AWS Transfer Family for architecture and operations:
 - AWS Transfer Family provides a secure and reliable way to transfer files between your on-premises systems and AWS storage services.
 - AWS Transfer Family supports a variety of SFTP clients, including WinSCP, Cyberduck, and FileZilla.
 - AWS Transfer Family provides a variety of features to help you manage your file transfers, including:
-- User and group management (including integration with AWS IAM and Active Directory)
-- Access control (using IAM roles and policies)
-- Activity logging (via CloudTrail)
-- File transfer notifications (using Amazon SNS)
-- Support for multiple authentication methods, including password, SSH keys, and directory service integration.
+  - User and group management (including integration with AWS IAM and Active Directory)
+  - Access control (using IAM roles and policies)
+  - Activity logging (via CloudTrail)
+  - File transfer notifications (using Amazon SNS)
+  - Support for multiple authentication methods, including password, SSH keys, and directory service integration.
 
 Here are some additional details about AWS Transfer Family that you may want to know:
 
 - AWS Transfer Family can be used to transfer files of any size, from small text files to large video files.
-- AWS Transfer Family can be used to transfer files between your on-premises systems and AWS storage services in any AWS Region.  
+- AWS Transfer Family can be used to transfer files between your on-premises systems and AWS storage services in any AWS Region.
 - AWS Transfer Family can be integrated with a variety of other AWS services, such as Amazon CloudTrail and Amazon CloudWatch.
 
 AWS Transfer Family is a powerful tool for transferring files over SFTP securely and reliably. It is easy to use and it provides a variety of features to help you manage your file transfers efficiently.
@@ -301,12 +299,12 @@ Key points about AWS Direct Connect for architecture and operations:
 - AWS Direct Connect provides a secure, reliable, and high-performance connection to AWS.
 - AWS Direct Connect can be used to connect to any AWS service.
 - AWS Direct Connect offers two main types of connections:
-- Dedicated Connections: A dedicated physical connection between your on-premises network and AWS, offering a range of bandwidth options.
-- Hosted Connections: A connection provisioned by an AWS Direct Connect partner, with pre-defined bandwidth options.
+  - Dedicated Connections: A dedicated physical connection between your on-premises network and AWS, offering a range of bandwidth options.
+  - Hosted Connections: A connection provisioned by an AWS Direct Connect partner, with pre-defined bandwidth options.
 
 Here are some additional details about AWS Direct Connect that you may want to know:
 
-- AWS Direct Connect is a global service with over 140 Direct Connect locations around the world.  
+- AWS Direct Connect is a global service with over 140 Direct Connect locations around the world.
 - AWS Direct Connect offers a variety of bandwidth options, from 50 Mbps (hosted connections) up to 400 Gbps (dedicated connections).
 - AWS Direct Connect can be used to create a variety of network configurations, including site-to-site VPNs, point-to-point connections, hub-and-spoke networks, and integration with AWS Transit Gateway for simplified network management.
 - AWS Direct Connect can be integrated with a variety of other AWS services, such as AWS Virtual Private Cloud (VPC) and AWS Transit Gateway.
@@ -319,22 +317,22 @@ Amazon S3 is a highly scalable, durable, and available object storage service th
 
 Key points about Amazon S3 for architecture and operations:
 
-- S3 is a highly scalable, durable, and available object storage service.  
+- S3 is a highly scalable, durable, and available object storage service.
 - S3 can be used to store any type of data, including web pages, images, videos, and databases.
 - S3 is secure, durable, and low-cost.
 - S3 is easy to use and provides a variety of features to help you manage your data, including:
-- Object versioning
-- Access control (IAM, Bucket Policies, Access Points, Access Grants)
-- Bucket policies
-- Server-side encryption (SSE-S3, SSE-KMS, SSE-C)
-- Static website hosting
-- S3 Storage Lens (for organization-wide visibility)
-- S3 Object Lambda (process data as it is retrieved; closed to new customers since November 7, 2025)
+  - Object versioning
+  - Access control (IAM, Bucket Policies, Access Points, Access Grants)
+  - Bucket policies
+  - Server-side encryption (SSE-S3, SSE-KMS, SSE-C)
+  - Static website hosting
+  - S3 Storage Lens (for organization-wide visibility)
+  - S3 Object Lambda (process data as it is retrieved; closed to new customers since November 7, 2025)
 
 Here are some additional details about Amazon S3 that you may want to know:
 
 - S3 stores data in buckets, which are logical containers for your data.
-- S3 objects are uniquely identified by a key (name) and a version ID (if versioning is enabled).  
+- S3 objects are uniquely identified by a key (name) and a version ID (if versioning is enabled).
 - S3 objects can be up to 5 TB in size.
 - S3 offers a variety of storage classes to meet your needs, including S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, S3 Glacier Deep Archive, and S3 Express One Zone.
 - S3 can be integrated with a variety of other AWS services, such as Amazon EC2, Amazon CloudFront, AWS Lambda, AWS Storage Gateway, and AWS Lake Formation.
@@ -345,7 +343,7 @@ Amazon S3 is a powerful tool for storing and retrieving any amount of data. It i
 
 ## Amazon Elastic Block Store (EBS)
 
-Elastic Block Store (EBS) is a block-level storage service designed for use with Amazon Elastic Compute Cloud (EC2) instances. EBS volumes provide persistent storage for applications running on EC2 instances. EBS volumes are replicated within the Availability Zone in which they are created to protect against data loss.  
+Elastic Block Store (EBS) is a block-level storage service designed for use with Amazon Elastic Compute Cloud (EC2) instances. EBS volumes provide persistent storage for applications running on EC2 instances. EBS volumes are replicated within the Availability Zone in which they are created to protect against data loss.
 
 EBS volumes are available in six volume types:
 
@@ -364,7 +362,7 @@ EBS is an important part of the AWS Well-Architected Framework. The Well-Archite
 Key points about EBS for architecture and operations:
 
 - EBS volumes are attached to EC2 instances using block device mappings.
-- EBS volumes can be encrypted at rest using AWS Key Management Service (KMS).  
+- EBS volumes can be encrypted at rest using AWS Key Management Service (KMS).
   - When a volume is encrypted, data in transit between the instance and the volume is also encrypted.
 - EBS volumes can be used to create RAID arrays.
 - EBS volumes can be used to create boot volumes for EC2 instances.
@@ -380,7 +378,7 @@ EFS file systems are highly available and durable, and they can scale to petabyt
 Key points about EFS for architecture and operations:
 
 - EFS is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your storage.
-- EFS file systems are highly available and durable, and they can scale to petabytes of data.  
+- EFS file systems are highly available and durable, and they can scale to petabytes of data.
 - EFS provides strong consistency and file locking.
 - EFS can be used with EC2 instances, Amazon Elastic Container Service (ECS), Amazon Elastic Kubernetes Service (EKS), AWS Lambda functions, and AWS Fargate.
 - EFS can be used to store data for a wide range of workloads, including web applications, content management systems, databases, and machine learning.
@@ -390,11 +388,11 @@ Key points about EFS for architecture and operations:
 Here are some additional details about EFS that you may want to know:
 
 - EFS uses the Network File System (NFS) protocol to provide access to file systems.
-- EFS file systems can be mounted on EC2 instances in your virtual private cloud (VPC).  
+- EFS file systems can be mounted on EC2 instances in your virtual private cloud (VPC).
 - EFS file systems can be accessed from on-premises servers using AWS Direct Connect or AWS VPN.
   - EFS file systems can be encrypted using AWS Key Management Service (KMS).
 
-## Amazon Relational Database Service (RDS)  
+## Amazon Relational Database Service (RDS)
 
 Amazon Relational Database Service (RDS) is a managed database service that provides a relational database infrastructure for deploying, scaling, and managing relational databases in the cloud. RDS supports a variety of database engines, including MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server, and Amazon Aurora.
 
@@ -410,11 +408,11 @@ Here are some additional details about RDS that you may want to know:
 
 - RDS instances can be deployed in a variety of deployment options, including single-AZ, Multi-AZ (with standby or Multi-AZ DB cluster deployments), and read replicas.
 - RDS instances can be backed up automatically to Amazon Simple Storage Service (S3).
-- RDS instances can be restored from backups to create new RDS instances.  
+- RDS instances can be restored from backups to create new RDS instances.
 - RDS storage can be scaled up without downtime, and Multi-AZ deployments minimize downtime during instance changes.
 - RDS databases can be migrated between engines using the AWS Schema Conversion Tool and AWS Database Migration Service.
 
-## Amazon Aurora  
+## Amazon Aurora
 
 Amazon Aurora is a relational database service that combines the performance and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. Aurora is MySQL and PostgreSQL compatible, so developers can use existing code, skills, and tools to build new applications, or migrate existing applications to the cloud.
 
@@ -428,7 +426,7 @@ Key points about Aurora for architecture and operations:
 
 Here are some additional details about Aurora that you may want to know:
 
-- Aurora uses a distributed storage system to achieve high performance and availability.  
+- Aurora uses a distributed storage system to achieve high performance and availability.
 - Aurora supports multiple Availability Zones for high availability and disaster recovery.
 - Aurora offers continuous backup and point-in-time recovery.
 - Aurora can be scaled up or down without downtime.
@@ -440,7 +438,7 @@ Amazon DynamoDB is a fully managed, multi-region, multi-master, durable NoSQL da
 
 Key points about DynamoDB for architecture and operations:
 
-- DynamoDB is a NoSQL database, which means that it does not use a traditional relational database schema.  
+- DynamoDB is a NoSQL database, which means that it does not use a traditional relational database schema.
 - DynamoDB is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your database.
 - DynamoDB is highly available and durable, and it can scale to petabytes of data.
 - DynamoDB provides single-digit millisecond performance at any scale.
@@ -456,7 +454,7 @@ Here are some additional details about DynamoDB that you may want to know:
 - DynamoDB tables can also have secondary indexes (Global Secondary Indexes and Local Secondary Indexes), which are used to query items based on attribute values.
 - DynamoDB offers a variety of APIs for accessing and managing data, including the AWS SDKs, the AWS CLI, and the AWS Management Console.
 
-## Amazon Redshift  
+## Amazon Redshift
 
 Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. Redshift makes it simple and cost-effective to analyze all your data using standard SQL and existing BI tools. Redshift is up to 100 times faster than traditional data warehouses, and it offers a variety of features to help you analyze your data, including:
 
@@ -471,7 +469,7 @@ Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the
 
 Key points about Redshift for architecture and operations:
 
-- Redshift is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your data warehouse.  
+- Redshift is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your data warehouse.
 - Redshift is up to 100 times faster than traditional data warehouses.
 - Redshift is compatible with standard SQL.
 - Redshift is cost-effective, and it offers a variety of features to help you save money, such as reserved nodes.
@@ -552,7 +550,7 @@ Here are some additional details about API Gateway that you may want to know:
 - API Gateway can be integrated with a variety of other AWS services, such as AWS Lambda, Amazon DynamoDB, Amazon S3, AWS Step Functions, and AWS AppSync.
 - API Gateway supports private APIs for secure access within a VPC.
 
-## Amazon Cognito  
+## Amazon Cognito
 
 Amazon Cognito is a fully managed user identity and access management (IAM) service that allows you to easily add user authentication, authorization, and management to your web and mobile applications. Cognito provides features such as user registration, sign-in, sign-out, password recovery, and access control, so you can focus on building great user experiences.
 
@@ -572,7 +570,7 @@ Key points about Amazon Cognito for architecture and operations:
 
 - Cognito is a fully managed user identity and access management (IAM) service.
 - Cognito can be used to authenticate users with a variety of methods, including username and password, social login, MFA, and custom authentication schemes.
-- Cognito can also be used to authorize users to access your resources.  
+- Cognito can also be used to authorize users to access your resources.
 - Cognito is a highly available and durable service.
 
 Here are some additional details about Amazon Cognito that you may want to know:
@@ -584,7 +582,7 @@ Here are some additional details about Amazon Cognito that you may want to know:
 - Cognito supports user migration for seamless transitions from existing user directories.
 - Cognito can be integrated with a variety of other AWS services, such as Amazon API Gateway, AWS Lambda, and Amazon S3.
 
-## Amazon CloudWatch  
+## Amazon CloudWatch
 
 Amazon CloudWatch is a monitoring and observability service that provides data and insights in logs, metrics, and events. It collects metrics and logs from all your AWS services, and you can monitor them, visualize the data, and act automatically to changes in these services.
 
@@ -609,7 +607,7 @@ Here are some additional details about CloudWatch that you may want to know:
 - CloudWatch Internet Monitor for monitoring internet performance.
 - CloudWatch Application Signals for application performance monitoring.
 
-## AWS CloudTrail  
+## AWS CloudTrail
 
 AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk mitigation by capturing, logging, storing, and delivering event log files that record API calls made to your AWS account and your resources. With CloudTrail, you can track user activity and API usage across your AWS services and resources.
 
@@ -640,7 +638,7 @@ AWS Identity and Access Management (IAM) is a web service that enables you to se
 
 Key points about AWS Identity and Access Management (IAM) for architecture and operations:
 
-- IAM is a fully managed service that enables you to securely control access to AWS services and resources.  
+- IAM is a fully managed service that enables you to securely control access to AWS services and resources.
 - IAM uses users, groups, and roles to manage access to AWS resources.
 - IAM uses identity-based policies (attached to users, groups, roles), resource-based policies (attached to resources like S3 buckets, SQS queues), and access control lists (ACLs) to manage access to AWS resources.
 - IAM users are individual people who are authorized to use AWS services and resources.
@@ -661,7 +659,7 @@ Example use cases of IAM:
 
 - **Creating and managing AWS users and groups:** IAM can be used to create and manage AWS users and groups. This allows you to control who has access to your AWS resources and what they can do with them.
 - **Implementing least privilege access:** IAM can be used to implement least privilege access, which means that users and groups are only granted the permissions that they need to perform their jobs. This helps to improve the security of your AWS environment.
-- **Implementing multi-factor authentication:** IAM can be used to implement multi-factor authentication (MFA), which adds an extra layer of security to your AWS account. MFA requires users to enter a code from their mobile phone in addition to their password when logging in.  
+- **Implementing multi-factor authentication:** IAM can be used to implement multi-factor authentication (MFA), which adds an extra layer of security to your AWS account. MFA requires users to enter a code from their mobile phone in addition to their password when logging in.
 - **Auditing all access to your AWS resources:** IAM can be used to audit all access to your AWS resources, so that you can track who is accessing what and when. This information can be used to troubleshoot problems and identify suspicious activity.
 
 ## AWS Key Management Service (KMS)
@@ -695,7 +693,7 @@ Example use cases of KMS:
 - **Encrypting data in transit:** KMS can be used to encrypt data in transit between AWS services. This helps to protect your data from eavesdropping and man-in-the-middle attacks.
 - **Managing keys for a variety of AWS services:** KMS can be used to manage keys for a variety of AWS services, in addition to Amazon S3, Amazon RDS, and Amazon EBS. This includes services such as Amazon CloudFront, Amazon OpenSearch Service, and Amazon Redshift.
 
-## AWS Security Hub  
+## AWS Security Hub
 
 In December 2025 AWS released a new, unified AWS Security Hub that correlates signals from GuardDuty, Inspector, and posture checks; the original service described below is now called AWS Security Hub CSPM and remains available.
 
@@ -717,7 +715,7 @@ Key points about AWS Security Hub for architecture and operations:
 
 - Security Hub is a cloud security posture management service that provides a comprehensive view of your security state across AWS accounts, services, and supported third-party products.
 - Security Hub collects findings from a variety of sources, including Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS IAM Access Analyzer, and prioritizes them based on severity and risk.
-- Security Hub also provides recommendations for remediation, so that you can quickly and easily address any security issues.  
+- Security Hub also provides recommendations for remediation, so that you can quickly and easily address any security issues.
 - Security Hub can be integrated with other AWS services, such as Amazon EventBridge and Amazon CloudWatch, to automate remediation actions.
 - Security Hub supports security controls for AWS services and partner products.
 
@@ -782,14 +780,14 @@ Key points about AWS Systems Manager for architecture and operations:
 Here are some additional details that you may want to know:
 
 - Systems Manager includes a variety of features, such as:
-- Patch Manager: Helps you manage and deploy software patches to your AWS resources.
-- State Manager: Helps you automate the configuration and management of your AWS resources.
-- Automation: Helps you create and run scripts to automate operational tasks across your AWS resources.
-- Inventory: Provides a detailed inventory of your AWS resources, including software installed and configuration details.
-- Parameter Store: Provides a secure, hierarchical storage for configuration data management and secrets.
-- Session Manager: Provides secure and auditable instance management without opening inbound ports.
-- Patch Manager: Automates patching of operating systems and applications.
-- State Manager: Automates the process of keeping your EC2 instances and other AWS resources in a defined state.
+  - Patch Manager: Helps you manage and deploy software patches to your AWS resources.
+  - State Manager: Helps you automate the configuration and management of your AWS resources.
+  - Automation: Helps you create and run scripts to automate operational tasks across your AWS resources.
+  - Inventory: Provides a detailed inventory of your AWS resources, including software installed and configuration details.
+  - Parameter Store: Provides a secure, hierarchical storage for configuration data management and secrets.
+  - Session Manager: Provides secure and auditable instance management without opening inbound ports.
+  - Patch Manager: Automates patching of operating systems and applications.
+  - State Manager: Automates the process of keeping your EC2 instances and other AWS resources in a defined state.
 - Systems Manager can be integrated with other AWS services, such as AWS Systems Manager Incident Manager, AWS CloudFormation, AWS CodePipeline, and AWS Config.
 - Systems Manager supports Run Command for remote execution of commands on instances.
 
@@ -854,7 +852,7 @@ AWS deployment and management services provide the tools you need to deploy, man
 
 - **AWS CloudWatch:** A monitoring and observability service that provides data and insights to help you manage your AWS resources and applications.
 
-## AWS Cost Optimization Strategies  
+## AWS Cost Optimization Strategies
 
 AWS cost optimization strategies help you reduce your AWS costs without sacrificing performance or reliability. Some of the most important cost optimization strategies include:
 
