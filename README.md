@@ -662,31 +662,22 @@ AWS Systems Manager is a service that helps you manage and automate your AWS res
 
 Key points about AWS Systems Manager for architecture and operations:
 
-- Systems Manager is a fully managed service that helps you manage and automate your AWS resources.
-- Systems Manager provides a set of tools and capabilities that can be used to deploy, manage, and configure applications; automate operational tasks; collect and analyze data from your infrastructure; and respond to events and alerts.
-- Systems Manager can be used to implement best practices, such as infrastructure as code, configuration management, and continuous integration and continuous delivery (CI/CD).
-
-Here are some additional details that you may want to know:
-
 - Systems Manager includes a variety of features, such as:
   - Patch Manager: Helps you manage and deploy software patches to your AWS resources.
   - State Manager: Helps you automate the configuration and management of your AWS resources.
-  - Automation: Helps you create and run scripts to automate operational tasks across your AWS resources.
+  - Automation: Helps you create and run runbooks to automate operational tasks across your AWS resources.
   - Inventory: Provides a detailed inventory of your AWS resources, including software installed and configuration details.
-  - Parameter Store: Provides a secure, hierarchical storage for configuration data management and secrets.
+  - Parameter Store: Provides secure, hierarchical storage for configuration data and secrets. SecureString parameters are encrypted with AWS KMS. Parameter Store does not rotate secrets; use AWS Secrets Manager for automatic rotation.
   - Session Manager: Provides secure and auditable instance management without opening inbound ports.
-- Systems Manager can be integrated with other AWS services, such as AWS Systems Manager Incident Manager, AWS CloudFormation, AWS CodePipeline, and AWS Config.
 - Systems Manager supports Run Command for remote execution of commands on instances.
+- Systems Manager can be integrated with other AWS services, such as AWS CloudFormation, AWS CodePipeline, and AWS Config.
 
 Example use cases of Systems Manager:
 
 - **Deploying an application:** Systems Manager can be used to deploy an application to a fleet of Amazon EC2 instances.
-
 - **Automating patching:** Systems Manager can be used to automate the patching of your AWS resources.
-
 - **Managing configuration:** Systems Manager can be used to manage the configuration of your AWS resources.
-
-- **Responding to incidents:** Systems Manager can be used to respond to incidents by automatically running scripts to troubleshoot and resolve problems.
+- **Responding to incidents:** Systems Manager can be used to respond to incidents by automatically running runbooks that troubleshoot and resolve problems.
 
 ## AWS Well-Architected Framework
 
