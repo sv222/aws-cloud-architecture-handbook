@@ -932,41 +932,22 @@ AWS CodeBuild is a fully managed continuous integration service that runs your b
 
 ## AWS CodeDeploy
 
-AWS CodeDeploy is a deployment service that helps you automate application deployments to Amazon Elastic Compute Cloud (Amazon EC2) instances, on-premises instances, serverless applications (AWS Lambda), and Amazon ECS/EKS container services. CodeDeploy makes it easy to reliably deploy code and infrastructure changes to your applications.
-
-CodeDeploy works by deploying your application code to a set of instances or serverless functions. CodeDeploy then routes traffic to the new deployments and monitors the deployment to ensure that it is successful, with options for automatic rollback.
-
-CodeDeploy can be integrated with a variety of AWS services, such as Amazon S3, AWS CloudFormation, and AWS CodePipeline. This allows you to automate the deployment process for your applications.
+AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances, AWS Lambda functions, and Amazon ECS services. It routes traffic to the new version, monitors the deployment, and can roll back automatically.
 
 **Key points about AWS CodeDeploy for architecture and operations:**
 
-- AWS CodeDeploy is a deployment service that helps you automate application deployments to Amazon EC2 instances, on-premises instances, serverless applications (AWS Lambda), and Amazon ECS/EKS.
-- CodeDeploy makes it easy to reliably deploy code and infrastructure changes to your applications.
-- CodeDeploy works by deploying your application code to a set of instances or functions, routing traffic, and monitoring the deployment for success.
-- CodeDeploy can be integrated with a variety of AWS services, such as Amazon S3, AWS CloudFormation, and AWS CodePipeline.
+- CodeDeploy has three compute platforms: EC2/on-premises, AWS Lambda, and Amazon ECS. Amazon EKS is not one of them.
+- The CodeDeploy agent must be installed on EC2 and on-premises instances. Lambda and ECS deployments do not use it.
+- Deployment types by platform: in-place (EC2/on-premises only), blue/green (EC2/on-premises and ECS), and canary, linear, or all-at-once traffic shifting (Lambda and ECS).
+- Each revision contains one AppSpec file. On EC2/on-premises it must be named `appspec.yml` at the root of the revision. Lambda and ECS AppSpec files can be YAML or JSON.
+- Automatic rollback runs when a deployment fails or a linked CloudWatch alarm fires. On Lambda and ECS, traffic shifts back to the original version.
 
 **Here are some additional details about AWS CodeDeploy that you may want to know:**
 
-- CodeDeploy supports a variety of deployment strategies, such as in-place deployments, blue/green deployments (for EC2/On-Premises and ECS), and linear/canary deployments (for Lambda).
-- CodeDeploy provides a variety of features to help you monitor and manage your deployments, such as real-time status updates, deployment events (CloudWatch Events), and audit logs (CloudTrail).
-- CodeDeploy can be used to deploy applications of all sizes, from small websites to large enterprise applications.
-- CodeDeploy supports automatic rollbacks on deployment failures.
-- CodeDeploy supports various deployment strategies, including in-place, blue/green, and canary deployments.
-
-**Here are some of the benefits of using AWS CodeDeploy:**
-
-- **Reduced risk:** CodeDeploy can help you to reduce the risk of your deployments by automating the deployment process, providing various deployment strategies, and enabling automatic rollbacks.
-- **Improved reliability:** CodeDeploy can help you to improve the reliability of your deployments by ensuring consistent deployments and minimizing downtime.
-- **Increased efficiency:** CodeDeploy can help you to increase the efficiency of your deployments by automating the deployment process and providing detailed monitoring.
-
-Overall, AWS CodeDeploy is a valuable tool for any organization that is developing and deploying software. It can help you to reduce the risk, improve the reliability, and increase the efficiency of your deployments.
-
-**In addition to the above, here are some other things to keep in mind about AWS CodeDeploy:**
-
-- CodeDeploy can be integrated with a variety of DevOps tools, such as AWS CodePipeline, Jenkins, and CircleCI.
-- CodeDeploy uses an AppSpec file to manage deployment configurations.
-
-AWS CodeDeploy is a powerful and flexible tool for automating the deployment process for your applications. It is easy to use and it provides a variety of features to help you reduce the risk, improve the reliability, and increase the efficiency of your deployments.
+- Deployment events are published to Amazon EventBridge (formerly CloudWatch Events), and API calls are logged in AWS CloudTrail.
+- For blue/green deployments, CodeDeploy keeps monitoring alarms during the termination wait period after cutover, so a rollback is still possible.
+- CodeDeploy can be used as the deploy action in AWS CodePipeline.
+- CodeDeploy can be integrated with a variety of DevOps tools, such as AWS CodePipeline and Jenkins.
 
 ## AWS CodeCommit
 
