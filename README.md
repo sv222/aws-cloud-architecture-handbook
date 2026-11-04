@@ -951,40 +951,21 @@ AWS CodeDeploy is a deployment service that automates application deployments to
 
 ## AWS CodeCommit
 
-AWS CodeCommit is a fully managed, highly scalable, secure source control service that hosts private Git repositories. AWS closed CodeCommit to new customers on July 25, 2024, then returned it to general availability for new and existing customers in November 2025. CodeCommit makes it easy for teams to collaborate on code development and track changes over time.
-
-CodeCommit is a fully managed service, so you don't need to provision or manage any servers. CodeCommit also provides a variety of security features to help you protect your code, such as encryption at rest and in transit, and integration with AWS IAM for access control.
-
-CodeCommit can be integrated with a variety of other AWS services, such as AWS CodePipeline, AWS CodeDeploy, and AWS CodeBuild. This allows you to automate your software development and deployment process.
+AWS CodeCommit is a fully managed, highly scalable, secure source control service that hosts private Git repositories. AWS closed CodeCommit to new customers on July 25, 2024, then returned it to general availability for new and existing customers in November 2025.
 
 **Key points about AWS CodeCommit for architecture and operations:**
 
-- AWS CodeCommit is a fully managed, highly scalable, secure source control service that hosts private Git repositories.
-- CodeCommit makes it easy for teams to collaborate on code development and track changes over time.
-- CodeCommit is a fully managed service, so you don't need to provision or manage any servers.
-- CodeCommit provides a variety of security features to help you protect your code, including encryption at rest and in transit.
-- CodeCommit can be integrated with a variety of other AWS services, such as AWS CodePipeline, AWS CodeDeploy, and AWS CodeBuild.
+- Authentication is based on IAM. HTTPS Git credentials and SSH keys are tied to IAM users. The AWS CLI credential helper and git-remote-codecommit also work with federated users and temporary credentials. Git credentials and SSH keys cannot access repositories in another AWS account.
+- IAM policies control access to repositories and branches.
+- Approval rule templates are associated with repositories and add approval rules to matching pull requests, optionally limited to destination branches.
+- Repository and pull request events are published to Amazon EventBridge.
+- CodeCommit provides encryption at rest and in transit.
 
 **Here are some additional details about AWS CodeCommit that you may want to know:**
 
-- CodeCommit supports all of the standard Git features, such as branches, commits, pull requests, and merges.
-- CodeCommit provides a variety of features to help you manage your repositories, such as branching policies, code review workflows, and notifications.
-- CodeCommit can be accessed using a variety of tools, such as the AWS CodeCommit console, the Git CLI, and any Git client.
-- CodeCommit integrates with AWS IAM for granular access control to repositories and branches.
-- CodeCommit supports pull request and code review workflows.
-
-**Here are some of the benefits of using AWS CodeCommit:**
-
-- **Security:** CodeCommit provides a variety of security features to help you protect your code, such as encryption at rest and in transit, and fine-grained access control through IAM.
-- **Scalability:** CodeCommit is a highly scalable service that can handle repositories of any size, from small projects to large enterprise applications.
-- **Reliability:** CodeCommit is a reliable service that is available 24/7, with data replicated across multiple Availability Zones.
-- **Ease of use:** CodeCommit is an easy-to-use service that provides a familiar Git experience and integrates seamlessly with other AWS services.
-
-Overall, AWS CodeCommit is a valuable tool for any organization that is developing and deploying software. It provides a secure, scalable, and reliable way to host your private Git repositories.
-
-**In addition to the above, here are some other things to keep in mind about AWS CodeCommit:**
-
 - CodeCommit supports repository triggers for automated actions on code changes.
+- CodeCommit is available 24/7, with data replicated across multiple Availability Zones.
+- CodeCommit is a source action in AWS CodePipeline.
 
 ## Contributing
 
