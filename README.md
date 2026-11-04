@@ -889,44 +889,27 @@ AWS IAM Access Analyzer helps you identify, understand, and remediate potential 
 
 ## AWS CodePipeline
 
-AWS CodePipeline is a continuous delivery service that helps you automate the release and deployment process for your applications. CodePipeline builds, tests, and deploys your code every time there is a change, so you can release new features more frequently and reliably.
+AWS CodePipeline is a continuous delivery service that models your release process as stages and runs them automatically when a change is detected. A typical pipeline includes these stages:
 
-CodePipeline works by modeling and automating the steps required to release your software. You can create a pipeline that includes the following stages:
-
-- **Source stage:** The source stage retrieves the code from your source code repository, such as AWS CodeCommit, GitHub, Bitbucket, or Amazon S3.
-- **Build stage:** The build stage compiles, packages, and tests your code using services like AWS CodeBuild.
-- **Test stage:** (Optional) The test stage runs additional tests on your code.
-- **Deploy stage:** The deploy stage deploys your code to your production environment using services like AWS CodeDeploy, AWS Elastic Beanstalk, or AWS CloudFormation.
-
-CodePipeline can be integrated with a variety of AWS services, such as Amazon S3, Amazon Elastic Container Registry (ECR), AWS Lambda, and AWS CloudFormation. This allows you to use CodePipeline to automate the release and deployment process for a wide range of applications.
+- **Source stage:** Retrieves code from the source provider, such as AWS CodeCommit, GitHub, Bitbucket, GitLab, Amazon S3, or Amazon Elastic Container Registry (ECR).
+- **Build stage:** Compiles, packages, and tests your code, typically with AWS CodeBuild.
+- **Test stage:** (Optional) Runs additional tests.
+- **Deploy stage:** Deploys to your environments, typically with AWS CodeDeploy, AWS Elastic Beanstalk, AWS CloudFormation, or Amazon ECS.
 
 **Key points about AWS CodePipeline for architecture and operations:**
 
-- AWS CodePipeline is a continuous delivery service that helps you automate the release and deployment process for your applications.
-- CodePipeline works by modeling and automating the steps required to release your software, such as retrieving the code from your source code repository, compiling, packaging, and testing your code, and deploying your code to your production environment.
-- CodePipeline can be integrated with a variety of AWS services, such as Amazon S3, Amazon ECR, AWS Lambda, and AWS CloudFormation.
+- GitHub (through a GitHub App), Bitbucket, GitLab.com, and self-managed GitLab connect through AWS CodeConnections. The older GitHub OAuth action still works for existing pipelines, but AWS does not recommend it.
+- Amazon S3 source buckets must have versioning enabled.
+- Pipelines are V1 unless you set the type to V2. V2 adds Git push and pull request triggers with branch and file path filters (for connection-based sources), pipeline-level variables, stage rollback, and the QUEUED and PARALLEL execution modes. V1 is billed per active pipeline per month; V2 is billed per action execution minute.
+- Execution modes: SUPERSEDED (the default) lets a newer execution overtake one that is still in progress. QUEUED runs executions in order, and PARALLEL runs them at the same time. QUEUED and PARALLEL require V2, and PARALLEL does not support stage rollback.
+- Manual approval actions can be added to any stage. They time out after 7 days by default, configurable up to 60 days per action.
 
 **Here are some additional details about AWS CodePipeline that you may want to know:**
 
-- CodePipeline is a managed service, so you do not need to manage any underlying infrastructure.
-- CodePipeline supports a variety of deployment targets, including Amazon EC2 instances, Amazon ECS clusters, AWS Lambda functions, and on-premises servers.
-- CodePipeline provides a variety of features to help you monitor and manage your pipelines, such as real-time status updates, alerts (via SNS), and audit logs (via CloudTrail).
-- CodePipeline supports manual approvals at any stage of the pipeline.
-
-**Here are some of the benefits of using AWS CodePipeline:**
-
-- **Increased release frequency:** CodePipeline can help you to release new features more frequently by automating the release and deployment process.
-- **Improved reliability:** CodePipeline can help you to improve the reliability of your releases by automating the build, test, and deploy process, reducing human error.
-- **Reduced risk:** CodePipeline can help you to reduce the risk of releasing buggy code by automating the test process and enabling quick rollbacks.
-- **Improved visibility:** CodePipeline provides a variety of features to help you monitor and manage your pipelines, which can help you to identify and resolve problems quickly.
-
-Overall, AWS CodePipeline is a valuable tool for any organization that is developing and deploying software. It can help you to increase your release frequency, improve the reliability of your releases, reduce the risk of releasing buggy code, and improve the visibility of your release process.
-
-**In addition to the above, here are some other things to keep in mind about AWS CodePipeline:**
-
+- Deploy action providers include CodeDeploy (for EC2, on-premises, Lambda, and ECS), Amazon ECS (including blue/green through CodeDeploy), AWS CloudFormation, AWS Elastic Beanstalk, and Amazon S3.
+- Deploy action timeouts: 3 days for CloudFormation, 5 days for CodeDeploy and CodeDeploy ECS blue/green, and 90 minutes for Amazon S3.
+- CodePipeline provides real-time status updates, alerts (via SNS), and audit logs (via CloudTrail).
 - CodePipeline supports pipeline templates for quick setup.
-
-AWS CodePipeline is a powerful tool for automating the release and deployment process for your applications. It is easy to use and it provides a variety of features to help you improve the frequency, reliability, and risk of your releases.
 
 ## AWS CodeBuild
 
