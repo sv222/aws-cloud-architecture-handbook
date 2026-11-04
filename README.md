@@ -448,29 +448,29 @@ Here are some additional details about Amazon SNS that you may want to know:
 
 ## Amazon API Gateway
 
-Amazon API Gateway is a fully managed service that makes it easy to create, publish, maintain, monitor, and secure APIs at any scale. With API Gateway, you can create REST APIs that access data, applications, and services hosted on AWS or on-premises. API Gateway also provides a variety of features to help you manage your APIs, including:
+Amazon API Gateway is a fully managed service that makes it easy to create, publish, maintain, monitor, and secure APIs. With API Gateway, you can create REST APIs that access data, applications, and services hosted on AWS or on-premises. API Gateway also provides a variety of features to help you manage your APIs, including:
 
-- **API authorization and authentication:** You can use API Gateway to authorize and authenticate users of your APIs using a variety of methods, including AWS Identity and Access Management (IAM) roles, Amazon Cognito user pools, and OAuth 2.0.
+- **API authorization and authentication:** You can authorize callers with IAM roles, Amazon Cognito user pools, and Lambda authorizers. HTTP APIs also support JWT authorizers for OAuth 2.0 and OpenID Connect tokens.
 - **API monitoring:** API Gateway provides detailed metrics (CloudWatch) and logs (CloudWatch Logs, X-Ray) for your APIs, so you can monitor their performance and identify any issues.
-- **API caching:** API Gateway can cache responses to your APIs, which can improve performance and reduce the load on your backend systems.
-- **API versioning:** API Gateway supports API versioning and stages, so you can create new versions of your APIs without breaking existing clients.
-- **Usage Plans:** Control access to your APIs and throttle requests.
-- **AWS WAF Integration:** Protect your APIs from common web exploits.
+- **API caching:** Response caching is available for REST APIs only.
+- **API versioning:** Stages and base path mappings let you run several versions side by side, such as `api.example.com/v1` and `api.example.com/v2`.
+- **Usage Plans:** REST APIs only. Usage plans with API keys set per-client throttling limits.
+- **AWS WAF Integration:** REST APIs only. Protect your APIs from common web exploits.
 
 Key points about API Gateway for architecture and operations:
 
 - API Gateway is a fully managed service, so you don't have to worry about provisioning, managing, or scaling your API infrastructure.
 - API Gateway supports REST APIs, WebSocket APIs, and HTTP APIs (optimized for serverless workloads).
-- API Gateway provides a variety of features to help you manage your APIs, including authorization and authentication, monitoring, caching, and versioning.
-- API Gateway can be used to create APIs that access data, applications, and services hosted on AWS or on-premises.
+- HTTP APIs cost less and have lower latency than REST APIs, but they lack caching, usage plans, AWS WAF, and private endpoints. Choose REST APIs when you need those features.
 
 Here are some additional details about API Gateway that you may want to know:
 
 - API Gateway APIs are defined using OpenAPI specifications.
-- API Gateway APIs can be deployed to production, staging, and test environments using stages.
-- API Gateway APIs can be invoked using a variety of tools, including the AWS Console, the AWS CLI, AWS SDKs, and custom clients.
+- Stages let you deploy one API to production, staging, and test environments. Each REST API stage has its own invoke URL, in the form `api-id.execute-api.region.amazonaws.com/stage`.
+- The default account-level throttle is 10,000 requests per second per Region, with a burst capacity of 5,000 requests.
+- Integration timeouts default to 29 seconds. An integration that runs longer returns HTTP 504 to the client.
 - API Gateway can be integrated with a variety of other AWS services, such as AWS Lambda, Amazon DynamoDB, Amazon S3, AWS Step Functions, and AWS AppSync.
-- API Gateway supports private APIs for secure access within a VPC.
+- Private REST APIs are reachable only from within a VPC, through an interface VPC endpoint. They require a resource policy.
 
 ## Amazon Cognito
 
