@@ -104,28 +104,18 @@ Key points about Amazon ECS for architecture and operations:
 
 ## Amazon Elastic Container Registry (ECR)
 
-Amazon ECR is a fully managed container registry that makes it easy to store, manage, and deploy Docker container images and Open Container Initiative (OCI) compatible artifacts. ECR is integrated with Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS), so you can easily deploy your containerized applications to production.
+Amazon ECR is a fully managed container registry for Docker container images and Open Container Initiative (OCI) compatible artifacts. ECR is integrated with Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS).
 
 Key points about Amazon ECR for architecture and operations:
 
-- ECR is a fully managed container registry.
-- ECR is integrated with ECS and EKS.
-- ECR stores Docker container images and OCI compatible artifacts.
 - ECR provides a variety of features to help you manage your container images, including:
   - Image tagging and versioning
   - Image replication
-  - Image scanning
+  - Image scanning: basic scanning (AWS-native, no additional charge) or enhanced scanning through Amazon Inspector (billed separately). Clair-based scanning has been deprecated.
   - Image lifecycle management
-
-Here are some additional details about Amazon ECR that you may want to know:
-
-- ECR can be used to store container images of any size.
-- ECR images can be deployed to ECS or EKS clusters in any AWS Region.
-- ECR images can be accessed using the AWS Management Console, the AWS CLI, or the AWS SDKs.
+- Pull through cache rules cache images from upstream registries, such as Docker Hub, in your private registry.
+- Maximum layer size is a service quota. Check the current value in Service Quotas before you push very large images.
 - ECR supports IPv6 for enhanced networking capabilities.
-- ECR provides Pull Through Cache rules to automatically cache images from upstream public registries.
-
-ECR is a powerful tool for managing container images. It is easy to use and it provides a variety of features to help you manage your images securely and efficiently.
 
 ## Amazon Elastic Kubernetes Service (EKS)
 
