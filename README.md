@@ -595,42 +595,34 @@ Key points about AWS Key Management Service (KMS) for architecture and operation
 
 ## AWS Security Hub
 
-In December 2025 AWS released a new, unified AWS Security Hub that correlates signals from GuardDuty, Inspector, and posture checks; the original service described below is now called AWS Security Hub CSPM and remains available.
+In December 2025 AWS released a new, unified AWS Security Hub that correlates findings from GuardDuty, Inspector, Macie, and Security Hub CSPM. The original service is now called AWS Security Hub CSPM and remains available.
 
 AWS Security Hub CSPM provides centralized security governance across AWS accounts with these key features:
 
-- **Compliance Standards**:
+- **Compliance standards**:
   - AWS Foundational Security Best Practices (FSBP)
-  - CIS AWS Foundations Benchmark
+  - CIS AWS Foundations Benchmark (v5.0.0 recommended)
   - PCI DSS (v3.2.1 and v4.0.1)
   - NIST SP 800-53 Rev. 5
-- **Automated Findings Correlation**: Groups related findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, and other integrated services.
-- **Security Score**: Quantitative measure of compliance status and overall security posture.
-- **Cross-Region/Account Aggregation**: Centralized view of security posture across multiple AWS accounts and regions.
+- **Security score**: Quantitative measure of compliance status and overall security posture.
+- **Cross-Region and cross-account aggregation**: Centralized view of security posture across multiple AWS accounts and Regions.
 - **Integration with AWS Organizations**: Manage security at scale across your organization.
-- **Custom Insights**: Create custom queries to identify specific security issues.
-- **Automated Remediation**: Integrate with AWS Systems Manager Automation and AWS Lambda for automated responses.
+- **Custom insights**: Create custom queries to identify specific security issues.
+- **Automated remediation**: Integrate with AWS Systems Manager Automation and AWS Lambda for automated responses.
 
 Key points about AWS Security Hub CSPM for architecture and operations:
 
-- Security Hub CSPM is a cloud security posture management service that provides a comprehensive view of your security state across AWS accounts, services, and supported third-party products.
-- Security Hub collects findings from a variety of sources, including Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS IAM Access Analyzer, and prioritizes them based on severity and risk.
-- Security Hub also provides recommendations for remediation, so that you can quickly and easily address any security issues.
+- Security Hub CSPM is a cloud security posture management service that provides a view of your security state across AWS accounts, services, and supported third-party products.
+- Security Hub CSPM collects findings from AWS services, including Amazon GuardDuty, Amazon Inspector, Amazon Macie, and AWS IAM Access Analyzer, and from AWS Partner Network security products. It converts them to the AWS Security Finding Format (ASFF).
 - Security Hub can be integrated with other AWS services, such as Amazon EventBridge and Amazon CloudWatch, to automate remediation actions.
 - Security Hub supports security controls for AWS services and partner products.
 
 Here are some additional details that you may want to know:
 
-- Security Hub is a regional service. You must enable Security Hub in each region where you want to use it.
-- Security Hub can be used to create custom security standards and policies.
+- Security Hub is a regional service. You must enable it in each Region where you want to use it.
+- Cross-Region aggregation pulls data only from Regions where Security Hub CSPM is enabled. Turning on aggregation does not enable Security Hub CSPM in other Regions.
+- Configuration policies (up to 20 per delegated administrator) apply enabled standards, controls, and parameter values across accounts and organizational units.
 - Security Hub can be used to generate reports on your security posture.
-
-Example use cases of Security Hub:
-
-- **Identify and remediate security issues:** Security Hub aggregates findings across numerous AWS security services (e.g., GuardDuty, Inspector, Macie, IAM Access Analyzer) and partner solutions.
-- **Meet compliance requirements:** Automated compliance checks against various security standards (e.g., PCI DSS, CIS AWS Foundations Benchmark, NIST).
-- **Security Automation:** Integrated with AWS Systems Manager Automation and AWS Lambda for automated remediation workflows.
-- **Centralized Security Operations:** Provides a single pane of glass for security posture management across your AWS environment.
 
 ## AWS CloudFormation
 
