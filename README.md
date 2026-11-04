@@ -157,20 +157,17 @@ Amazon Virtual Private Cloud (VPC) enables you to launch AWS resources into a lo
 
 Key points about Amazon VPC for architecture and operations:
 
-- VPC is a logically isolated virtual network that you define.
-- VPC provides you with complete control over your virtual networking environment, including the selection of your own IP address range, creation of subnets, and configuration of route tables, network gateways (Internet Gateway, Virtual Private Gateway), and VPC Endpoints.
-- You can use both IPv4 and IPv6 for most resources in your VPC, supporting dual-stack configurations.
-- VPC can be used to build a wide variety of networks, including public networks, private networks, and hybrid networks, with options for VPC Peering and Transit Gateway for inter-VPC connectivity.
+- VPC provides you with complete control over your virtual networking environment, including the selection of your own IP address range, creation of subnets, and configuration of route tables, internet gateways, NAT gateways, virtual private gateways, and VPC endpoints.
+- A VPC can use IPv4, IPv6, or dual-stack addressing.
+- VPC can be used to build public, private, and hybrid networks, with VPC peering and Transit Gateway for inter-VPC connectivity.
 
 Here are some additional details about Amazon VPC that you may want to know:
 
-- VPCs can be divided into subnets, which are smaller, isolated networks within your VPC.
-- You can configure route tables to control how traffic flows between subnets, and between your VPC and the internet or other VPCs.
-- You can use network gateways to connect your VPC to the internet or to other VPCs.
-- You can use security groups to control inbound and outbound traffic to and from your VPC resources at the instance level, and Network Access Control Lists (NACLs) at the subnet level.
+- Subnets are smaller networks within your VPC. Each subnet resides in a single Availability Zone.
+- Security groups control inbound and outbound traffic at the instance level and are stateful, so return traffic is allowed automatically. Network ACLs control traffic at the subnet level and are stateless, so return traffic needs its own rule.
+- A NAT gateway, placed in a public subnet, lets instances in private subnets start outbound IPv4 connections.
+- Gateway endpoints for Amazon S3 and DynamoDB are targets in route tables. Interface endpoints use AWS PrivateLink and elastic network interfaces.
 - VPC Flow Logs capture information about the IP traffic going to and from network interfaces in your VPC, enabling monitoring and troubleshooting.
-
-VPC is a powerful tool for building and managing secure and isolated networks in the cloud. It is easy to use and it provides a variety of features to help you meet your networking needs.
 
 ## Amazon Route 53
 
